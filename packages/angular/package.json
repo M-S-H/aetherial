@@ -22,7 +22,6 @@
     "ng-packagr",
     "aetherial"
   ],
-  "private": false,
   "peerDependencies": {
     "@angular/common": "^5.0.0",
     "@angular/core": "^5.0.0"

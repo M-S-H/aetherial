@@ -4,7 +4,6 @@
   "description": "Vue UI component library",
   "author": "Michael Hickman <mshickman91@gmail.com>",
   "main": "lib/aetherial-vue.min.js",
-  "private": false,
   "license": "MIT",
   "scripts": {
     "prepublishOnly": "npm run build",
