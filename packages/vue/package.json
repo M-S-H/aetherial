@@ -1,6 +1,6 @@
 {
   "name": "@aetherial/aetherial-vue",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Vue UI component library",
   "author": "Michael Hickman <mshickman91@gmail.com>",
   "main": "lib/aetherial-vue.min.js",
@@ -95,5 +95,8 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
-  ]
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
 }
