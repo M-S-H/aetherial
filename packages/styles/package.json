@@ -1,7 +1,7 @@
 {
   "name": "@aetherial/aetherial-styles",
   "private": false,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Styling for aetherial-vue and aetherial-angular",
   "main": "aetherial.scss",
   "keywords": [],
