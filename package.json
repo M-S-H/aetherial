@@ -1,6 +1,6 @@
 {
 	"scripts": {
-		"publish": "lerna publish --skip-npm"
+		"publish": "lerna publish --skip-npm && git push --tags origin"
 	},
 	"devDependencies": {
 		"lerna": "^2.9.0"
