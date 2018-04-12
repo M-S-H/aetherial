@@ -33,6 +33,7 @@ script:
 before_deploy:
   - if [ "$PACKAGE" != "styles" ] ; then cd dist
 
+deploy:
   provider: npm
   email: mshickman91@gmail.com
   api_key:
