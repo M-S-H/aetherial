@@ -1,4 +1,7 @@
 {
+	"scripts": {
+		"publish": "lerna publish --skip-npm"
+	},
 	"devDependencies": {
 		"lerna": "^2.9.0"
 	}
