@@ -1,13 +1,6 @@
 sudo: required
 dist: trusty
 
-addons:
-  apt:
-    sources:
-      - google-chrome
-    packages:
-      - google-chrome-stable
-
 language: node_js
 node_js:
   - 8
@@ -24,7 +17,7 @@ jobs:
         - lerna bootstrap
 
     - stage: styles
-      script: cd package/styles
+      script: cd packages/styles
       deploy:
         provider: npm
         email: mshickman91@gmail.com
@@ -35,6 +28,13 @@ jobs:
         skip_cleanup: true
 
     - stage: deploy
+      addons:
+        apt:
+          sources:
+            - google-chrome
+          packages:
+            - google-chrome-stable
+
       env:
         matrix:
           include:
