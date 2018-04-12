@@ -14,16 +14,19 @@ node_js:
 
 env:
   global:
-    - secure: ""
-  
+    - secure: ""  
   matrix:
     - PACKAGE=styles
     - PACKAGE=angular
     - PACKAGE=vue
+
+
   
 before_script:
+  - npm install -g lerna
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
+  - lerna bootstrap
   - cd packages/$PACKAGE
 
 install:

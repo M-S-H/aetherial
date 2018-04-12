@@ -6,7 +6,7 @@
   "keywords": [],
   "author": "",
   "scripts": {
-    "build": "nothing to do!",
+    "build": "echo 'nothing to do!'",
     "test": "echo 'No tests'"
   },
   "license": "MIT",
