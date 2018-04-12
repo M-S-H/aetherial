@@ -19,29 +19,27 @@ before_script:
 jobs:
   include:
     - stage: bootstrap
-    - script:
-      - npm install -g lerna
-      - lerna bootstrap
+      script:
+        - npm install -g lerna
+        - lerna bootstrap
 
     - stage: styles
-    - script:
-      - cd packages/styles
-    - deploy: ./deploy
+      script: cd package/styles
+      deploy: ./deploy
 
     - stage: deploy
-    - env:
-      matrix:
-        - PACKAGE=angular
-        - PACKAGE=vue
-    - script: cd packages/$PACKAGE
-    - install:
-      - npm install
-    - script:
-      - npm run test
-      - npm run build
-    - before_deploy:
-      - cd dist
-    - deploy: ./deploy
+      env:
+        matrix:
+          - PACKAGE=angular
+          - PACKAGE=vue
+      script: cd packages/$PACKAGE
+      install: npm install
+      script:
+        - npm run test
+        - npm run build
+      before_deploy:
+        - cd dist
+      deploy: ./deploy
 
 # env:
 #   global:
