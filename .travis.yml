@@ -39,7 +39,7 @@ jobs:
           branch: master
         skip_cleanup: true
 
-    - stage: deploy
+    - stage: awesome
       addons:
         apt:
           sources:
