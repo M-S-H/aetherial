@@ -1,12 +1,11 @@
 {
   "name": "@aetherial/aetherial-vue",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Vue UI component library",
   "author": "Michael Hickman <mshickman91@gmail.com>",
   "main": "lib/aetherial-vue.min.js",
   "license": "MIT",
   "scripts": {
-    "prepublishOnly": "npm run build",
     "start": "npm-run-all --parallel start:lib start:docs",
     "start:lib": "webpack --config build/webpack.lib.conf.js --watch --progress --hide-modules",
     "start:docs": "node build/dev-server.js",
