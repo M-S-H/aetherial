@@ -7,9 +7,8 @@ node_js:
 
 env:
   matrix:
-    include:
-      - PACKAGE=angular
-      - PACKAGE=vue
+    - PACKAGE=angular
+    - PACKAGE=vue
 
 before_script:
   - export DISPLAY=:99.0
