@@ -37,7 +37,8 @@ script:
   - npm run build
 
 before_deploy:
-  - if [ "$PACKAGE" != "styles" ] ; then cd dist
+  - cd dist
+  if: $PACKAGE != styles
 
 deploy:
   provider: npm
