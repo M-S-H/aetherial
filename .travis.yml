@@ -7,12 +7,18 @@ node_js:
 
 env:
   matrix:
-    - PACKAGE=angular
-    - PACKAGE=vue
+    include:
+      - PACKAGE=angular
+      - PACKAGE=vue
 
 before_script:
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
+
+stages:
+  - bootstrap
+  - styles
+  - deploy
 
 jobs:
   include:
