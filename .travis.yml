@@ -5,6 +5,11 @@ language: node_js
 node_js:
   - 8
 
+env:
+  matrix:
+    - PACKAGE=angular
+    - PACKAGE=vue
+
 before_script:
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
@@ -12,12 +17,14 @@ before_script:
 jobs:
   include:
     - stage: bootstrap
+      env: PACKAGE="boobstrap"
       script:
         - npm install -g lerna
         - lerna bootstrap
 
     - stage: styles
-      script: cd packages/styles
+      env: PACKAGE=styles
+      script: cd packages/$PACKAGE
       deploy:
         provider: npm
         email: mshickman91@gmail.com
@@ -35,12 +42,7 @@ jobs:
           packages:
             - google-chrome-stable
 
-      env:
-        matrix:
-          include:
-            - PACKAGE=angular
-            - PACKAGE=vue
-      script: cd packages/$PACKAGE
+      before_install: cd packages/$PACKAGE
       install: npm install
       script:
         - npm run test
