@@ -27,6 +27,9 @@ jobs:
         - npm install -g lerna
         - lerna bootstrap
 
+    - stage: lala
+        script: echo '$PACKAGE'
+
     - stage: styles
       env: PACKAGE=styles
       script: cd packages/$PACKAGE
