@@ -1,12 +1,12 @@
 {
   "name": "@aetherial/aetherial-styles",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Styling for aetherial-vue and aetherial-angular",
   "main": "aetherial.scss",
   "keywords": [],
   "author": "",
   "scripts": {
-    "build": "echo 'nothing to do!'",
+    "build": "this shoud stop everything",
     "test": "echo 'No tests'"
   },
   "license": "MIT",
