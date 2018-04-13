@@ -55,7 +55,7 @@ jobs:
       script: cd packages/$PACKAGE
       <<: *deployNpm
 
-    - stage: test
+    - stage: deploy
       env: PACKAGE=angular
       <<: *deployStuff
     
