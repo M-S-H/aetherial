@@ -17,7 +17,7 @@ before_script:
 stages:
   - bootstrap
   - styles
-  - deploy
+  - test
 
 jobs:
   include:
@@ -26,9 +26,6 @@ jobs:
       script:
         - npm install -g lerna
         - lerna bootstrap
-
-    - stage: lala
-        script: echo '$PACKAGE'
 
     - stage: styles
       env: PACKAGE=styles
@@ -42,7 +39,7 @@ jobs:
           branch: master
         skip_cleanup: true
 
-    - stage: awesome
+    - stage: test
       addons:
         apt:
           sources:
