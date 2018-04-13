@@ -59,7 +59,7 @@ jobs:
       env: PACKAGE=angular
       <<: *deployStuff
     
-    - stage: test
+    - stage: deploy
       env: PACKAGE=vue
       <<: *deployStuff
       
