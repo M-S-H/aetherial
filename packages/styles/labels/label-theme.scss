@@ -1,0 +1,9 @@
+@import "../theme/default-theme";
+
+$default-label-theme: (
+  label-color: map-get($default-theme, dark-gray),
+  label-font-weight: 500,
+  label-font-size: 11px,
+  label-text-transform: uppercase,
+  label-letter-spacing: 0.1em
+)

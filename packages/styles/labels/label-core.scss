@@ -1,0 +1,14 @@
+@import "label-theme";
+
+@mixin label-mixin($theme) {
+  .av-label {
+    margin-bottom: 4px;
+    display: block;
+    color: map-get($theme, dark-gray-color);
+    font-family: map-get($theme, font-family-ui);
+    font-size: map-get($theme, label-font-size);
+    font-weight: map-get($theme, label-font-weight);
+    letter-spacing: map-get($theme, label-letter-spacing);
+    text-transform: map-get($theme, label-text-transform);
+  }
+}

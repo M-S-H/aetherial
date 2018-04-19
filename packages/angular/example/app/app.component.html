@@ -1,5 +1,39 @@
 <div class="greetings center">
+  <h1>Button</h1>
   <div>
-    <av-button></av-button>
+    <button AvButton>Save</button>
+    <button AvButton color="secondary" class="hollow" (click)="showModal = true">Save</button>
+    <button AvButton (click)="doStuff()" [buttonState]="state">
+      Normal
+      <span avButtonState state="success">Success</span>
+      <span avButtonState state="error">Error</span>
+    </button>
   </div>
+
+  <av-modal [visible]="showModal" (close)="showModal = false">
+    <div class="modal-header">New Something</div>
+
+    <form style="width: 600px; max-width: 100%;" #form="ngForm">
+      <av-form-field>
+        <label class="av-label">Name</label>
+        <input type="text" avInput name="name" #name="ngModel" ngModel required>
+        <av-form-error *ngIf="name.control.errors && name.control.errors.required && name.dirty">Name is requied.</av-form-error>
+      </av-form-field>
+    
+      <av-form-field>
+        <label class="av-label">Phone</label>
+        <input type="text" avInput name="phone" #phone="ngModel" ngModel required minlength="8">
+        <av-form-error *ngIf="phone.control.errors && phone.control.errors.required && phone.dirty">Phone is requied.</av-form-error>
+        <av-form-error *ngIf="phone.control.errors && phone.control.errors.minlength && phone.dirty">Phone must be at least 8 characters.</av-form-error>
+      </av-form-field>
+    </form>
+
+    <div class="modal-actions">
+      <button AvButton>
+        Save
+        <span avButtonState state="error">Invalid</span>
+      </button>
+      <button AvButton class="hollow error" (click)="showModal = false">Cancel</button>
+    </div>
+  </av-modal> 
 </div>

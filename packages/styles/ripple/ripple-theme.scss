@@ -1,0 +1,29 @@
+
+@mixin ripple-mixin($theme) {
+  .av-ripple {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+  }
+
+  .av-ripple-enter {
+    position: absolute;
+    opacity: 1;
+    background-color: rgba(white, 0.2);
+    border-radius: 50%;
+    transform: scale(0);
+    transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1), 
+      opacity .15s ease-out;
+  }
+
+  .av-ripple-active {
+    transform: scale(2);
+  }
+
+  .av-ripple-leave {
+    opacity: 0;
+  }
+}

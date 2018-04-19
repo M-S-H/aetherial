@@ -1,0 +1,11 @@
+@mixin mobile($theme) {
+  @media (max-width: map-get($theme, mobile-breakpoint)) { @content; }
+}
+
+@mixin tablet-only($theme) {
+  @media (min-width: map-get($theme, mobile-breakpoint) + 1px) and (max-width: map-get($theme, tablet-breakpoint)) { @content; }
+}
+
+@mixin tablet($theme) {
+  @media (max-width: map-get($theme, tablet-breakpoint)) { @content; }
+}

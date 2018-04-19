@@ -1,0 +1,41 @@
+<!-- Main Button Text -->
+<span
+  [ngClass]="{'hidden-loading': buttonState == 'loading', 'hidden-state': !['button', 'loading'].includes(buttonState)}"
+  class="av-button-content"
+>
+  <ng-content></ng-content>
+</span>
+
+<!-- Loading State -->
+<span 
+  *ngIf="buttonState === 'loading'"
+  class="button-loading-state"
+  @loadingState
+>
+  <av-spinner [color]="color"></av-spinner>
+</span>
+
+<!-- Success State -->
+<span
+  *ngIf="buttonState === 'success'"
+  class="button-state-container"
+  @alternateState
+>
+  <ng-content select="[state=success]"></ng-content>
+</span>
+
+<!-- Error State -->
+<span
+  *ngIf="buttonState === 'error'"
+  class="button-state-container"
+  @alternateState
+>
+  <ng-content select="[state=error]"></ng-content>
+</span>
+
+<!-- Ripple Element -->
+<div 
+  *ngIf="!disabled"
+  avRipple
+  [trigger]="hostElement()">
+</div>

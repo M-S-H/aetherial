@@ -3,10 +3,14 @@
 import Vue from 'vue'
 import App from './app'
 import router from './router'
+import button from './components/button'
+import rippleDirective from './directives/ripple'
 
 import './styles/app.scss'
 
 Vue.config.productionTip = false
+Vue.directive('ripple', rippleDirective)
+Vue.component('av-button', button)
 
 /* eslint-disable no-new */
 new Vue({

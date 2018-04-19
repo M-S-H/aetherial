@@ -1,7 +1,35 @@
-button {
-  background: yellow;
-}
+@import "theme/default-theme";
+@import "ripple/ripple-theme";
+@import "buttons/button-core";
+@import "buttons/button-theme";
+@import "spinner/spinner-core";
+@import "spinner/spinner-theme";
+@import "modal/modal-core";
+@import "modal/modal-theme";
+@import "inputs/input-core";
+@import "inputs/input-theme";
+@import "labels/label-core";
+@import "labels/label-theme";
 
-body {
-  background: blue;
+@mixin aetherial($theme: ()) {
+  *,
+  *:focus,
+  *:active {
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  $default-theme: map-merge($default-theme, $default-button-theme);
+  $default-theme: map-merge($default-theme, $default-spinner-theme);
+  $default-theme: map-merge($default-theme, $default-modal-theme);
+  $default-theme: map-merge($default-theme, $default-input-theme);
+  $default-theme: map-merge($default-theme, $default-label-theme);
+  $theme: map-merge($default-theme, $theme);
+  
+  @include av-button-mixin($theme);
+  @include ripple-mixin($theme);
+  @include spinner-mixin($theme);
+  @include modal-mixin($theme);
+  @include input-mixin($theme);
+  @include label-mixin($theme);
 }

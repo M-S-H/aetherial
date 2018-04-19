@@ -1,0 +1,87 @@
+@mixin spinner-mixin($theme) {
+  // Base styles
+  .av-spinner {
+    display: inline-block;
+    text-align: center;
+
+    // Text
+    .spinner-text {
+      font-family: map-get($theme, font-family-ui);
+      font-size: map-get($theme, spinner-font-size);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    // Circles container
+    .circles {
+      height: map-get($theme, spinner-circle-size);
+      margin: 0px auto 0;
+      text-align: center;
+
+      // Circles
+      .circle {
+        box-sizing: border-box;
+        width: map-get($theme, spinner-circle-size);
+        height: map-get($theme, spinner-circle-size);
+        display: inline-block;
+        border-radius: 100%;
+        border: 2px solid map-get($theme, primary-color);
+        vertical-align: top;
+        animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+
+        &.one {
+          animation-delay: -0.32s;
+        }
+
+        &.two {
+          animation-delay: -0.16s;
+        }
+      }
+    }
+  }
+
+
+  // Small Variant
+  .av-spinner.small {
+    .circles {
+      height: map-get($theme, spinner-circle-size-small);
+    }
+
+    .circles .circle {
+      width: map-get($theme, spinner-circle-size-small);
+      height: map-get($theme, spinner-circle-size-small);
+    }
+  }
+
+
+  // Solid Variant
+  .av-spinner.solid {
+    .circles .circle {
+      background-color: map-get($theme, primary-color);
+    }
+  }
+
+
+  // Keyframes
+  @keyframes sk-bouncedelay {
+    0%, 80%, 100% { 
+      transform: scale(0);
+    } 40% { 
+      transform: scale(1.0);
+    }
+  }
+
+
+  // Theming
+  @each $color in map-get($theme, color-palette) {
+    $color-ref: #{$color}-color;
+
+    .av-spinner.#{$color} .circle {
+      border-color: map-get($theme, $color-ref);
+    }
+
+    .av-spinner.#{$color}.solid .circle {
+      background-color: map-get($theme, $color-ref);
+    }
+  }
+}

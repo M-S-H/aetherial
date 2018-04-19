@@ -6,7 +6,7 @@
   "license": "MIT",
   "main": "src/index.ts",
   "scripts": {
-    "start": "ng serve --aot",
+    "start": "ng serve --aot --host 0.0.0.0",
     "build": "ng-packagr -p ng-package.json",
     "test": "npm run lint && ng test --watch false",
     "test-watch": "ng test",
@@ -27,7 +27,8 @@
     "@angular/core": "^5.0.0"
   },
   "dependencies": {
-    "@aetherial/aetherial-styles": "^0.0.6"
+    "@aetherial/aetherial-styles": "^0.0.6",
+    "web-animations-js": "^2.3.1"
   },
   "devDependencies": {
     "@angular/animations": "^5.0.0",

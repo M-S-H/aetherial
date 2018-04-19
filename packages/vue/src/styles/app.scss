@@ -1,3 +1,10 @@
 // Import your library's styles
 @import 'lib';
-@import '~@aetherial/aetherial-styles/aetherial'
+@import '~@aetherial/aetherial-styles/aetherial';
+
+$my-theme: (
+  bgcolor: blue
+);
+
+@include aetherial($my-theme);
+

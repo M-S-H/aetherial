@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500|Roboto:400,400i,700');
+
+$default-theme: (
+  // Typeography
+  font-family-ui: ('Montserrat', sans-serif),
+  font-family-base: ('Roboto', sans-serif),
+
+  // Colors
+  primary-color: #13547A,
+  secondary-color: #80D0C7,
+  success-color: #86D080,
+  warning-color: #D1A617,
+  error-color: #7A1313,
+  dark-gray-color: #A1A6BA,
+  medium-gray-color: #B9BED2,
+  light-gray-color: #F1F2F7,
+  white-color: white,
+  black-color: black,
+  color-palette: ('primary', 'secondary', 'success', 'warning', 'error', 'dark-gray', 'medium-gray', 'light-gray', 'white', 'black'),
+
+  border-radius-base: 4px,
+
+  mobile-breakpoint: 767px,
+  tablet-breakpoint: 1024px,
+);

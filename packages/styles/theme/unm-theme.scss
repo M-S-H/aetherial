@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500|Roboto:400,400i,700');
+
+$unm-theme: (
+  // Typeography
+  font-family-ui: ('Montserrat', sans-serif),
+  font-family-base: ('Roboto', sans-serif),
+
+  // Colors
+  primary-color: #A8AA19,
+  secondary-color: #007A86,
+  success-color: #A8AA19,
+  warning-color: #ED8B00,
+  error-color: #BA0C2F,
+  dark-gray-color: #A1A6BA,
+  medium-gray-color: #B9BED2,
+  light-gray-color: #F1F2F7,
+  white-color: white,
+  black-color: black,
+  color-palette: (primary, secondary, success, warning, error, dark-gray, medium-gray, light-gray, white, black),
+
+  border-radius-base: 4px
+);

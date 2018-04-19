@@ -1,0 +1,30 @@
+<div class="modal-container">
+  <!-- Modal Screen -->
+  <div
+    *ngIf="visible"
+    class="modal-screen" 
+    (click)="screenClose && canCloseSelf ? closeModal() : null"
+    @screen
+  ></div>
+
+  <!-- Modal Dialog Box -->
+  <div
+     *ngIf="visible"
+    class="modal-dialog"
+    @dialog
+  >
+    
+    <!-- Modal Header -->
+    <ng-content select="div.modal-header" class="modal-header">
+    </ng-content>
+    
+    <!-- Modal Content -->
+    <div class="modal-content">
+      <ng-content></ng-content>
+    </div>
+    
+    <!-- Modal Actions -->
+    <ng-content select="div.modal-actions" class="modal-actions">
+    </ng-content>
+  </div>
+</div>

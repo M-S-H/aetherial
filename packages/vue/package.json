@@ -8,7 +8,7 @@
   "scripts": {
     "start": "npm-run-all --parallel start:lib start:docs",
     "start:lib": "webpack --config build/webpack.lib.conf.js --watch --progress --hide-modules",
-    "start:docs": "node build/dev-server.js",
+    "start:docs": "node build/dev-server.js --host 0.0.0.0",
     "build": "npm run build:lib && npm run build:docs",
     "build:lib": "node build/build-lib.js",
     "build:docs": "node build/build.js",

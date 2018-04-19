@@ -1,0 +1,77 @@
+@mixin input-mixin($theme) {
+  // Form field styling
+  .av-form-field {
+    width: 100%;
+    padding: 10px 0px;
+    display: block;
+
+    .av-label {
+      transition: color 0.2s ease-out;
+    }
+  }
+
+
+  // Error Variant
+  .av-form-field.invalid {
+    .av-label {
+      color: map-get($theme, error-color);
+    }
+  }
+
+
+  // Input Styling
+  .av-input {
+    box-sizing: border-box;
+    width: 100%;
+    height: map-get($theme, input-height);
+    padding: map-get($theme, input-padding);
+    color: map-get($theme, dark-gray-color);
+    border: map-get($theme, input-border-size) solid map-get($theme, dark-gray-color);
+    border-radius: map-get($theme, border-radius-base);
+    font-family: map-get($theme, font-family-base);
+    font-size: map-get($theme, input-font-size);
+    transition: color 0.2s ease-out, border-color 0.2s ease-out;
+
+    &:hover {
+      color: darken(map-get($theme, dark-gray-color), 10%);
+      border-color: darken(map-get($theme, dark-gray-color), 10%);
+    }
+
+    &:focus {
+      color: #000;
+      border-color: #000;
+      outline: none;
+    }
+
+    &.ng-dirty.ng-invalid {
+      color: map-get($theme, error-color);
+      caret-color: map-get($theme, error-color);
+      border-color: map-get($theme, error-color);
+    }
+  }
+
+  .av-input.solid {
+    border: none;
+    background-color: map-get($theme, light-gray-color);
+    
+    &.ng-dirty.ng-invalid {
+      color: map-get($theme, error-color);
+      background-color: rgba(map-get($theme, error-color), 0.1);
+      caret-color: map-get($theme, error-color);
+    }
+  }
+
+
+  .form-field-errors {
+    position: relative;
+  }
+
+
+  .form-error {
+    position: absolute;
+    left: 0px;
+    color: map-get($theme, error-color);
+    font-size: 10px;
+    font-family: map-get($theme, font-family-ui);
+  }
+}

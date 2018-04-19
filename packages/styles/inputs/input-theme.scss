@@ -1,0 +1,11 @@
+@import "../theme/default-theme";
+
+$default-input-theme: (
+  input-height: 36px,
+  min-input-width: 200px,
+  input-background: transparent,
+  input-border-size: 1px,
+  input-border-focus: 1px solid #000,
+  input-padding: 0px 10px,
+  input-font-size: 13px
+)

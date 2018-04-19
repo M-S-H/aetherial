@@ -1,0 +1,22 @@
+@import "../theme/default-theme";
+
+$default-modal-theme: (
+  small-modal-width: 400px,
+  medium-modal-width: 600px,
+  large-modal-width: 900px,
+  
+  modal-position-x: 50%,
+  modal-position-y: 50%,
+  modal-translate-x: -50%,
+  modal-translate-y: -50%,
+
+  modal-heading-font-size: 18px,
+  modal-heading-color: map-get($default-theme, light-gray-color),
+  modal-action-color: map-get($default-theme, light-gray-color),
+  modal-divider: 1px solid map-get($default-theme, medium-gray-color),
+
+  modal-shadow: 0px 6px 15px rgba(black, 0.1),
+
+  modal-screen-color: rgba(black, 0.5),
+  modal-screen-blur: 5px
+)

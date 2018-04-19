@@ -1,1 +1,4 @@
-@import '~@aetherial/aetherial-styles/aetherial'
+@import '~@aetherial/aetherial-styles/aetherial';
+@import '~@aetherial/aetherial-styles/theme/unm-theme';
+
+@include aetherial();
