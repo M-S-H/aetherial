@@ -33,7 +33,7 @@ deployStuff: &deployStuff
         - google-chrome-stable
 
   before_install: cd packages/$PACKAGE
-  install: npm install
+  install: echo 'no install needed'
   script:
     - npm run test
     - npm run build
