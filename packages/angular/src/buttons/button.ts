@@ -61,7 +61,7 @@ export class AvButtonComponent extends AvBase {
       this._buttonState = newState;
     } else if (newState === 'loading') {
       this._buttonState = newState;
-    } else if (['success', 'error'].includes(newState)) {
+    } else if (['success', 'error'].indexOf(newState) !== -1) {
       const s = this.states.find(x => x.state === newState);
       if (s) {
         if (!this._originalColor) {
