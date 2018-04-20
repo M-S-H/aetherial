@@ -24,11 +24,11 @@
   ],
   "peerDependencies": {
     "@angular/common": "^5.0.0",
-    "@angular/core": "^5.0.0",
-    "web-animations-js": "^2.3.1"
+    "@angular/core": "^5.0.0"
   },
   "dependencies": {
-    "@aetherial/aetherial-styles": "^0.0.7"
+    "@aetherial/aetherial-styles": "^0.0.7",
+    "web-animations-js": "^2.3.1"
   },
   "devDependencies": {
     "@angular/animations": "^5.0.0",

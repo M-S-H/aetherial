@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { AvButtonComponent } from './button';
 import { AvRippleDirective } from '../shared/ripple';
 import { AvButtonStateDirective } from './button-state';
-import { AvSpinnerModule } from '..';
+import { AvSpinnerModule } from '../spinner/spinner.module';
 
 @NgModule({
   imports: [ CommonModule, BrowserAnimationsModule, AvSpinnerModule ],
