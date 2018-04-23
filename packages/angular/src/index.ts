@@ -9,3 +9,6 @@ export * from './modal/modal.module';
 
 // Input
 export * from './input/input.module';
+
+// Radio Buttons
+export * from './radio-buttons/radio-buttons.module';

@@ -9,6 +9,11 @@
       <span avButtonState state="error">Error</span>
     </button>
   </div>
+  
+  <div style="margin-top: 10px; max-width: 600px;">
+    <av-select></av-select>
+    <p>Stuff Here should be under the select drop down</p>
+  </div>
 
   <av-modal [visible]="showModal" (close)="showModal = false">
     <div class="modal-header">New Something</div>
@@ -26,7 +31,26 @@
         <av-form-error *ngIf="phone.control.errors && phone.control.errors.required && phone.dirty">Phone is requied.</av-form-error>
         <av-form-error *ngIf="phone.control.errors && phone.control.errors.minlength && phone.dirty">Phone must be at least 8 characters.</av-form-error>
       </av-form-field>
+
+      <av-form-field>
+        <label class="av-label">Something</label>
+        <av-radio-group name="something" color="secondary" ngModel #something="ngModel" required>
+          <av-radio-button value="one">One</av-radio-button>
+          <av-radio-button value="two">Two</av-radio-button>
+          <av-radio-button value="three">Three</av-radio-button>
+        </av-radio-group>
+        <av-form-error *ngIf="something.control.errors && something.control.errors.required && something.dirty">Something is requied.</av-form-error>
+      </av-form-field>
+
+      <av-form-field>
+        <label class="av-label">Phone</label>
+        <input type="text" avInput name="phone" #phone="ngModel" ngModel required minlength="8">
+        <av-form-error *ngIf="phone.control.errors && phone.control.errors.required && phone.dirty">Phone is requied.</av-form-error>
+        <av-form-error *ngIf="phone.control.errors && phone.control.errors.minlength && phone.dirty">Phone must be at least 8 characters.</av-form-error>
+      </av-form-field>
     </form>
+
+    {{ form.value | json }}
 
     <div class="modal-actions">
       <button AvButton>

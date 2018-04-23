@@ -46,9 +46,11 @@ export class AvFormFieldComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     // Watch the passed in input's state
-    this.input.control.statusChanges.subscribe(x => {
-      this.inputInvalid = this.input.invalid();
-    });
+    if (this.input) {
+      this.input.control.statusChanges.subscribe(x => {
+        this.inputInvalid = this.input.invalid();
+      });
+    }
   }
 }
 

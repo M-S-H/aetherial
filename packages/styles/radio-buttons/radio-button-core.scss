@@ -1,0 +1,91 @@
+@mixin radio-button-mixin($theme) {
+  $radio-button-size: map-get($theme, radio-button-size);
+  $radio-button-border-size: map-get($theme, radio-button-border-size);
+  $inner-radio-button-size: ($radio-button-size -  ($radio-button-border-size * 2));
+  $inner-button-position: ($radio-button-size - ($radio-button-border-size * 2) - $inner-radio-button-size) / 2;
+
+  .av-radio-button {
+    height: $radio-button-size;
+    display: inline-block;
+    cursor: pointer;
+    user-select: none;
+
+    input[type=radio] {
+      display: none;
+    }
+  }
+
+  .av-radio-button:hover {
+    .av-radio-button-element {
+      border-color: lighten(map-get($theme, medium-gray-color), 5%);
+    }
+  }
+
+  .av-radio-button-element {
+    box-sizing: border-box;
+    width: $radio-button-size;
+    height: $radio-button-size;
+    display: inline-block;
+    position: relative;
+    border-radius: 50%;
+    border: $radio-button-border-size solid map-get($theme, medium-gray-color);
+    vertical-align: middle;
+
+    &::before {
+      content: ' ';
+      width: $inner-radio-button-size;
+      height: $inner-radio-button-size;
+      position: absolute;
+      top: $inner-button-position;
+      left: $inner-button-position;
+      background: white;
+      border-radius: 50%;
+      transform: scale(1);
+      transition: transform 0.15s ease-out, opacity 0.15s ease-out, border-color 0.15s ease-out;
+    }
+
+    &.selected::before {
+      transform: scale(0.6);
+    }
+  }
+
+  .av-radio-button-label {
+    font-family: map-get($theme, font-family-ui);
+    font-size: map-get($theme, radio-button-label-text-size);
+    font-weight: map-get($theme, radio-button-label-font-weight);
+    vertical-align: middle;
+    margin-left: 5px;
+    cursor: pointer;
+  }
+
+  .av-radio-group {
+    .av-radio-button {
+      margin-right: 20px;
+    }
+  }
+
+  // Theming
+  @each $color in map-get($theme, color-palette) {
+    $color-ref: #{$color}-color;
+
+    .av-radio-button.#{$color} .av-radio-button-element {
+      background: map-get($theme, $color-ref);
+    }
+
+    .av-radio-button.#{$color} .av-radio-button-element.selected {
+      border-color: map-get($theme, $color-ref);
+    }
+  }
+}
+
+@function inner-button-scale($radio-button-size, $radio-button-border-size, $inner-radio-button-size) {
+  @return strip-unit(($inner-radio-button-size * 2) / ($radio-button-size - $radio-button-border-size));
+}
+
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}

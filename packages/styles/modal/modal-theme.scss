@@ -18,5 +18,7 @@ $default-modal-theme: (
   modal-shadow: 0px 6px 15px rgba(black, 0.1),
 
   modal-screen-color: rgba(black, 0.5),
-  modal-screen-blur: 5px
+  modal-screen-blur: 5px,
+
+  modal-z-index: 100000
 )

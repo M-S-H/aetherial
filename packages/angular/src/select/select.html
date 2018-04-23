@@ -1,0 +1,21 @@
+<div 
+  class="av-select-display"
+  [ngClass]="{open: open}"
+  (click) = "open = !open"
+>
+
+<input
+  avInput
+  class="av-selected-display"
+  type="text"
+  readonly
+  onfocus="this.blur()"
+  [value] = "selected"
+/>
+</div>
+
+<!-- List of options -->
+<ul *ngIf="open" class="av-select-items" @slideDown>
+  <li *ngFor="let item of items" (click)="makeSelection(item)">{{ item }}</li>
+  <li class="sv-select-no-results" *ngIf="items.length == 0">No Results</li>
+</ul>

@@ -1,0 +1,13 @@
+<!-- Radio Button Element -->
+<div 
+  class="av-radio-button-element"
+  [ngClass]="{selected: selected}"
+></div>
+
+<!-- Radio Button Label -->
+<label class="av-radio-button-label">
+  <ng-content></ng-content>
+</label>
+
+<!-- Radio button for accessiblility -->
+<input type="radio" [checked]="selected" [value]="value" [name]="name" />

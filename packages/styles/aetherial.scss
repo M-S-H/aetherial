@@ -10,6 +10,10 @@
 @import "inputs/input-theme";
 @import "labels/label-core";
 @import "labels/label-theme";
+@import "select/select-core";
+@import "select/select-theme";
+@import "radio-buttons/radio-button-core";
+@import "radio-buttons/radio-button-theme";
 
 @mixin aetherial($theme: ()) {
   *,
@@ -24,6 +28,8 @@
   $default-theme: map-merge($default-theme, $default-modal-theme);
   $default-theme: map-merge($default-theme, $default-input-theme);
   $default-theme: map-merge($default-theme, $default-label-theme);
+  $default-theme: map-merge($default-theme, $default-select-theme);
+  $default-theme: map-merge($default-theme, $default-radio-button-theme);
   $theme: map-merge($default-theme, $theme);
   
   @include av-button-mixin($theme);
@@ -32,4 +38,6 @@
   @include modal-mixin($theme);
   @include input-mixin($theme);
   @include label-mixin($theme);
+  @include select-mixin($theme);
+  @include radio-button-mixin($theme);
 }

@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AvModalModule } from '../../src/modal/modal.module';
 import { AvInputModule } from '../../src/input/input.module';
+import { AvSelectModule } from '../../src/select/select.module';
+import { AvRadioButtonModule } from '../../src/radio-buttons/radio-buttons.module';
 
 @NgModule({
   imports: [
@@ -17,6 +19,8 @@ import { AvInputModule } from '../../src/input/input.module';
     AvSpinnerModule,
     AvModalModule,
     AvInputModule,
+    AvSelectModule,
+    AvRadioButtonModule,
     BrowserAnimationsModule
   ],
   declarations: [
