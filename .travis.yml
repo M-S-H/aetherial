@@ -32,6 +32,8 @@ deployStuff: &deployStuff
       packages:
         - google-chrome-stable
 
+  before_install:
+    - npm install -g lerna
   install: lerna bootstrap
   before_script: cd packages/$PACKAGE
   script:
