@@ -6,7 +6,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    z-index: map-get($theme, modal-z-indez);
+    z-index: map-get($theme, modal-z-index);
   }
 
   // Modal Screen
