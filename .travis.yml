@@ -32,8 +32,8 @@ deployStuff: &deployStuff
       packages:
         - google-chrome-stable
 
-  before_install: cd packages/$PACKAGE
-  install: npm install
+  install: lerna bootstrap
+  before_script: cd packages/$PACKAGE
   script:
     - npm run test
     - npm run build
@@ -44,11 +44,11 @@ deployStuff: &deployStuff
 
 jobs:
   include:
-    - stage: bootstrap
-      env: PACKAGE="boobstrap"
-      script:
-        - npm install -g lerna
-        - lerna bootstrap
+    # - stage: bootstrap
+    #   env: PACKAGE="boobstrap"
+    #   script:
+    #     - npm install -g lerna
+    #     - lerna bootstrap
 
     - stage: styles
       env: PACKAGE=styles
