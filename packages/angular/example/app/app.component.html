@@ -35,6 +35,13 @@
       </av-form-field>
 
       <av-form-field>
+        <label class="av-label">Description</label>
+        <textarea type="text" avInput name="desc" #desc="ngModel" ngModel required maxlength="100"></textarea>
+        <av-form-error *ngIf="desc.control.errors && desc.control.errors.required && desc.dirty">desc is requied.</av-form-error>
+        <av-form-error *ngIf="desc.control.errors && desc.control.errors.minlength && desc.dirty">Phone must be less than 100 characters.</av-form-error>
+      </av-form-field>
+
+      <av-form-field>
         <label class="av-label">Something</label>
         <av-radio-group name="something" color="secondary" ngModel #something="ngModel" required>
           <av-radio-button value="one">One</av-radio-button>

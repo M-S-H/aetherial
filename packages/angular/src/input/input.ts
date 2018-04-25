@@ -3,7 +3,7 @@ import { trigger, transition, style, animate, state } from '@angular/animations'
 import { NgControl } from '@angular/forms';
 
 @Directive({
-  selector: 'input[avInput]',
+  selector: 'input[avInput], textarea[avInput]',
   host: { 'class': 'av-input' }
 })
 export class AvInputDirective {

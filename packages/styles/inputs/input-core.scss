@@ -24,7 +24,7 @@
     box-sizing: border-box;
     width: 100%;
     height: map-get($theme, input-height);
-    padding: map-get($theme, input-padding);
+    padding: 0px map-get($theme, input-padding);
     color: map-get($theme, dark-gray-color);
     border: map-get($theme, input-border-size) solid map-get($theme, dark-gray-color);
     border-radius: map-get($theme, border-radius-base);
@@ -48,6 +48,12 @@
       caret-color: map-get($theme, error-color);
       border-color: map-get($theme, error-color);
     }
+  }
+
+  textarea.av-input {
+    height: 75px;
+    padding: map-get($theme, input-padding);
+    resize: none;
   }
 
   .av-input.solid {
