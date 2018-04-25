@@ -3,11 +3,13 @@
   <div>
     <button AvButton>Save</button>
     <button AvButton color="secondary" class="hollow" (click)="showModal = true">Save</button>
-    <button AvButton (click)="doStuff()" [buttonState]="state">
+    <button AvButton color="error" class="flat">Do Some Stuff</button>
+    <button AvButton (click)="doStuff()" [buttonState]="state" class="small">
       Normal
       <span avButtonState state="success">Success</span>
       <span avButtonState state="error">Error</span>
     </button>
+    <button AvButton class="hollow small">Save</button>
   </div>
   
   <div style="margin-top: 10px; max-width: 600px;">
