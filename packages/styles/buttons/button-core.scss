@@ -1,6 +1,6 @@
 @mixin av-button-mixin($theme) {
   .av-link {
-    font-family: map-get($theme, button-font-family);
+    font-family: map-get($theme, font-family-ui);
     font-size: map-get($theme, button-font-size);
     font-weight: map-get($theme, button-font-weight);
     letter-spacing: 0.1em;
@@ -27,7 +27,7 @@
     border-radius: map-get($theme, border-radius-base);
     border: none;
     box-shadow: map-get($theme, button-shadow);
-    font-family: map-get($theme, button-font-family);
+    font-family: map-get($theme, font-family-ui);
     font-size: map-get($theme, button-font-size);
     font-weight: map-get($theme, button-font-weight);
     line-height: map-get($theme, button-height);
