@@ -1,6 +1,6 @@
 {
   "name": "@aetherial/aetherial-vue",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "description": "Vue UI component library",
   "author": "Michael Hickman <mshickman91@gmail.com>",
   "main": "lib/aetherial-vue.min.js",
@@ -17,7 +17,7 @@
     "lint": "eslint --ext .js,.vue src test/unit/specs"
   },
   "dependencies": {
-    "@aetherial/aetherial-styles": "^0.0.12",
+    "@aetherial/aetherial-styles": "^0.0.13",
     "vue": "^2.3.3",
     "vue-router": "^2.6.0"
   },
