@@ -1,4 +1,18 @@
 @mixin av-button-mixin($theme) {
+  .av-link {
+    font-family: map-get($theme, button-font-family);
+    font-size: map-get($theme, button-font-size);
+    font-weight: map-get($theme, button-font-weight);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    color: map-get($theme, primary-color);
+
+    &:hover {
+      color: lighten(map-get($theme, primary-color), 10%);
+    }
+  }
+
   // Base Styles
   .av-button {
     box-sizing: border-box;
@@ -133,6 +147,14 @@
   // Theming
   @each $color in map-get($theme, color-palette) {
     $color-ref: #{$color}-color;
+
+    .av-link.#{$color} {
+      color: map-get($theme, $color-ref);
+      
+      &:hover {
+        color: lighten(map-get($theme, $color-ref), 10%);
+      }
+    }
 
     .av-button.#{$color} {
       background-color: map-get($theme, $color-ref);
