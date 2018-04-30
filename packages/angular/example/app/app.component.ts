@@ -12,6 +12,8 @@ export class AppComponent {
   showModal = false;
   stuff = 'dfsa';
 
+  items = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
+
   doStuff() {
     this.state = 'loading';
     setTimeout(() => {

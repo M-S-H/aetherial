@@ -13,8 +13,8 @@
     <button AvButton class="hollow small">Save</button>
   </div>
   
-  <div style="margin-top: 10px; max-width: 600px;">
-    <av-select></av-select>
+  <div style="margin-top: 10px; max-width: 600px; height: 100px; overflow: hidden; background: yellow;">
+    <av-select [items]="items" searchable="true"></av-select>
     <p>Stuff Here should be under the select drop down</p>
   </div>
 
@@ -51,6 +51,8 @@
         </av-radio-group>
         <av-form-error *ngIf="something.control.errors && something.control.errors.required && something.dirty">Something is requied.</av-form-error>
       </av-form-field>
+
+      <av-select [items]="items" searchable="true"></av-select>
 
       <av-form-field>
         <label class="av-label">Phone</label>
