@@ -12,3 +12,6 @@ export * from './input/input.module';
 
 // Radio Buttons
 export * from './radio-buttons/radio-buttons.module';
+
+// Select
+export * from './select/select.module';
