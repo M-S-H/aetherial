@@ -34,8 +34,6 @@ export class AvAvatarComponent {
     this.color = avatarColors[i.toUpperCase().charCodeAt(0) - 65];
   }
 
-  constructor() { }
-
   constructInitials() {
     if (this.name !== '') {
       const splitNames = this.name.split(' ');

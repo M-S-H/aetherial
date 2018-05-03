@@ -12,13 +12,13 @@
     </button>
     <button AvButton class="hollow small">Save</button>
   </div>
-
-  <av-avatar *ngFor="let n of names" [name]="n" size="30" image="https://randomuser.me/api/portraits/men/44.jpg"></av-avatar>
   
   <div style="margin-top: 10px; max-width: 600px; height: 100px; overflow: hidden; background: yellow;">
-    <av-select [items]="items" searchable="true"></av-select>
+    <av-select [items]="items"></av-select>
     <p>Stuff Here should be under the select drop down</p>
   </div>
+
+  <av-select [items]="objectItems" searchable="true" displayKey="value"></av-select>
 
   <av-modal [visible]="showModal" (close)="showModal = false">
     <div class="modal-header">New Something</div>

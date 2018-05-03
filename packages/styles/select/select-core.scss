@@ -9,6 +9,10 @@
     pointer-events: none;
   }
 
+  .overlay-value-display {
+    display: none;
+  }
+
   .av-select {
     width: 100%;
     display: inline-block;
@@ -31,10 +35,10 @@
   .av-select-chevron {
     width: 12px;
     position: absolute;
-    right: 20px;
     top: 15.5px;
-    pointer-events: none;
+    right: 20px;
     transition: transform 0.15s ease-out;
+    pointer-events: none;
 
     &.rotate {
       transform: rotate(-180deg);
@@ -74,6 +78,39 @@
         background: map-get($theme, light-gray-color);
         cursor: pointer;
       }
+    }
+  }
+
+
+  // Mobile Style
+  @include mobile($theme) {
+    .overlay-value-display {
+      display: block;
+
+      .av-select-display.open {
+        width: calc(100% - 20px);
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        z-index: 200002;
+      }
+    }
+
+    .av-select-chevron.rotate {
+      pointer-events: auto;
+    }
+
+    .av-select-overlay {
+      background: white;
+      pointer-events: auto;
+    }
+
+    .av-select-items {
+      width: calc(100% - 20px) !important;
+      height: 100%;
+      max-height: calc(100% - #{map-get($theme, input-height)} - 30px);
+      top: map-get($theme, input-height) + 20px !important;
+      left: 10px !important; 
     }
   }
 }

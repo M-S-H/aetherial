@@ -21,11 +21,20 @@ import { AvBase } from '../shared/base';
   host: { 'class': 'av-select' }
 })
 export class AvSelectComponent extends AvBase {
+  // Whether the list contains objects
+  objectList = false;
+
   // Options to be displayed
-  @Input() items: Array<string> = [];
+  private _items: Array<any>;
+  @Input()
+  get items() { return this._items; }
+  set items(list: Array<any>) {
+    this.objectList = typeof list[0] === 'object';
+    this._items = list;
+  }
 
   // Items filtered by search term
-  private filteredItems: Array<string>;
+  private filteredItems: Array<any>;
 
   // Option to make passed in items searchable
   @Input() searchable = false;
@@ -36,6 +45,11 @@ export class AvSelectComponent extends AvBase {
   // Reference to the select options template
   @ViewChild('options') options: TemplateRef<any>;
   @ViewChild('search') searchField;
+
+  @ViewChild('display') display: TemplateRef<any>;
+
+  // If items contains objects, display attribute with this key
+  @Input() displayKey = 'display';
 
   // Search term
   searchKey = '';
@@ -61,17 +75,18 @@ export class AvSelectComponent extends AvBase {
     this.searchKey = '';
 
     this._open = newValue;
-    if (this.open) {
+
+    if (this.open && this.searchable) {
       setTimeout(() => {
-        this.searchField.nativeElement.focus();
+        // this.searchField.nativeElement.focus();
       }, 0);
     }
   }
 
   // The selected value
-  private _selected = '';
+  private _selected: any;
   get selected() { return this._selected; }
-  set selected(newValue: string) {
+  set selected(newValue: any) {
     this._selected = newValue;
   }
 
@@ -105,6 +120,7 @@ export class AvSelectComponent extends AvBase {
     const domElem = (this.overlayRef.hostView as EmbeddedViewRef<any>).rootNodes[0] as HTMLElement;
     document.body.appendChild(domElem);
     this.overlayRef.instance.optionsTemplate = this.options;
+    this.overlayRef.instance.displayTemplate = this.display;
     this.overlayRef.instance.parent = this;
   }
 
@@ -125,10 +141,22 @@ export class AvSelectComponent extends AvBase {
   filterItems() {
     if (this.searchKey !== '') {
       this.filteredItems = this.items.filter(option => {
-        return option.toLowerCase().includes(this.searchKey.toLocaleLowerCase());
+        if (this.objectList) {
+          return option[this.displayKey].toLowerCase().includes(this.searchKey.toLocaleLowerCase());
+        } else {
+          return option.toLowerCase().includes(this.searchKey.toLocaleLowerCase());
+        }
       });
     } else {
       this.filteredItems = this.items;
+    }
+  }
+
+  itemDisplay(item) {
+    if (item) {
+      return this.objectList ? item[this.displayKey] : item;
+    } else {
+      return null;
     }
   }
 }

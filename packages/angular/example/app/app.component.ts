@@ -11,9 +11,13 @@ export class AppComponent {
   state = 'button';
   showModal = false;
   stuff = 'dfsa';
-  names = names;
-
   items = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
+
+  objectItems = [
+    {id: 1, value: 'one'},
+    {id: 2, value: 'two'},
+    {id: 3, value: 'three'}
+  ];
 
   doStuff() {
     this.state = 'loading';

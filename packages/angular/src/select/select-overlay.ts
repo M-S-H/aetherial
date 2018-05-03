@@ -3,7 +3,12 @@ import { trigger, transition, style, animate, state } from '@angular/animations'
 
 @Component({
   selector: 'av-select-overlay',
-  template: `<ng-container #container></ng-container>`,
+  template: `
+    <div class="overlay-value-display">
+      <ng-container #display></ng-container>
+    </div>
+    <ng-container #container></ng-container>
+  `,
   host: { 'class': 'av-select-overlay' },
   animations: [
     trigger('slideDown', [
@@ -21,6 +26,7 @@ import { trigger, transition, style, animate, state } from '@angular/animations'
 export class SvSelectOverlayComponent {
   // Reference to the ng-container where the select options will be injected
   @ViewChild('container', { read: ViewContainerRef }) container;
+  @ViewChild('display', { read: ViewContainerRef }) displayContainer;
 
   @HostBinding('@slideDown') true;
 
@@ -35,6 +41,21 @@ export class SvSelectOverlayComponent {
       this._optionsTemplate = template;
       setTimeout(() => {
         this.container.createEmbeddedView(this._optionsTemplate);
+      }, 0);
+    }
+  }
+
+  private _displayTemplate: TemplateRef<any>;
+  @Input()
+  get displayTemplate() { return this._displayTemplate; }
+  set displayTemplate(template: TemplateRef<any>) {
+    if (template) {
+      this._displayTemplate = template;
+      setTimeout(() => {
+        this.displayContainer.createEmbeddedView(this._displayTemplate);
+        setTimeout(() => {
+          this._elementRef.nativeElement.querySelector('.overlay-value-display .av-select-display input').focus();
+        }, 0);
       }, 0);
     }
   }

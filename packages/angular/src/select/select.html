@@ -1,43 +1,48 @@
-<div
-  class="av-select-display"
-  [ngClass]="{open: open}"
-  (click) = "open = !open"
->
-  <!-- Static display of selected value -->
-  <input
-    *ngIf="!(open && searchable)"
-    avInput
-    class="av-selected-display"
-    type="text"
-    readonly
-    onfocus="this.blur()"
-    [value] = "selected"
-    [placeholder]="selected || placeholder"
-  />
+<ng-template #display>
+  <div
+    class="av-select-display"
+    [ngClass]="{open: open}"
+    (click) = "open = !open"
+  >
+    <!-- Static display of selected value -->
+    <input
+      *ngIf="!(open && searchable)"
+      avInput
+      class="av-selected-display"
+      type="text"
+      onfocus="this.blur()"
+      [value]="itemDisplay(selected)"
+      [placeholder]="itemDisplay(selected) || placeholder"
+      readonly
+    />
 
-  <!-- Search input if enabled -->
-  <input
-    *ngIf="open && searchable"
-    type="text"
-    avInput
-    [(ngModel)]="searchKey"
-    (ngModelChange)="filterItems()"
-    (click)="$event.stopPropagation()"
-    [placeholder]="selected || placeholder"
-    #search
-  />
+    <!-- Search input if enabled -->
+    <input
+      *ngIf="open && searchable"
+      type="text"
+      avInput
+      [(ngModel)]="searchKey"
+      (ngModelChange)="filterItems()"
+      (click)="$event.stopPropagation()"
+      [placeholder]="itemDisplay(selected) || placeholder"
+      #search
+    />
 
-  <!-- Chevron -->
-  <svg class="av-select-chevron" [class.rotate]="open" x="0px" y="0px" viewBox="0 0 10.3 6">
-    <path d="M9.2,0.1L5.1,4.2L1,0.1C0.9,0,0.8,0,0.7,0.1L0.1,0.7C0,0.8,0,0.9,0.1,1l4.2,4.2l0,0L5,5.9C5.1,6,5.2,6,5.3,5.9l0,0l0.7-0.7
-	L10.2,1c0.1-0.1,0.1-0.2,0-0.3L9.5,0.1C9.4,0,9.3,0,9.2,0.1z"/>
-  </svg>
-</div>
+    <!-- Chevron -->
+    <svg class="av-select-chevron" [class.rotate]="open" x="0px" y="0px" viewBox="0 0 10.3 6" (click)="open = !open">
+      <path d="M9.2,0.1L5.1,4.2L1,0.1C0.9,0,0.8,0,0.7,0.1L0.1,0.7C0,0.8,0,0.9,0.1,1l4.2,4.2l0,0L5,5.9C5.1,6,5.2,6,5.3,5.9l0,0l0.7-0.7
+    L10.2,1c0.1-0.1,0.1-0.2,0-0.3L9.5,0.1C9.4,0,9.3,0,9.2,0.1z"/>
+    </svg>
+  </div>
+</ng-template>
+
+<!-- Display is injected here -->
+<ng-container *ngTemplateOutlet="display"></ng-container>
 
 <!-- List of options -->
 <ng-template #options>
   <ul *ngIf="open" class="av-select-items" [ngStyle]="overlayStyles">
-    <li *ngFor="let item of filteredItems" (click)="makeSelection(item)">{{ item }}</li>
+    <li *ngFor="let item of filteredItems" (click)="makeSelection(item)">{{ itemDisplay(item) }}</li>
     <li class="sv-select-no-results" *ngIf="filteredItems.length == 0">No Results</li>
   </ul>
 </ng-template>
