@@ -38,8 +38,10 @@ export class AvSelectComponent extends AvBase implements ControlValueAccessor {
   @Input()
   get items() { return this._items; }
   set items(list: Array<any>) {
-    this.objectList = typeof list[0] === 'object';
-    this._items = list;
+    if (list) {
+      this.objectList = typeof list[0] === 'object';
+      this._items = list;
+    }
   }
 
   // Items filtered by search term
@@ -94,7 +96,7 @@ export class AvSelectComponent extends AvBase implements ControlValueAccessor {
 
     if (this.open && this.searchable) {
       setTimeout(() => {
-        // this.searchField.nativeElement.focus();
+        this.searchField.nativeElement.focus();
       }, 0);
     }
   }
