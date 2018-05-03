@@ -10,17 +10,26 @@ import {
   ComponentRef,
   EmbeddedViewRef,
   ViewChild,
-  TemplateRef
+  TemplateRef,
+  forwardRef
 } from '@angular/core';
 import { SvSelectOverlayComponent } from './select-overlay';
 import { AvBase } from '../shared/base';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'av-select',
   templateUrl: 'select.html',
-  host: { 'class': 'av-select' }
+  host: { 'class': 'av-select' },
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => AvSelectComponent),
+      multi: true
+    }
+  ]
 })
-export class AvSelectComponent extends AvBase {
+export class AvSelectComponent extends AvBase implements ControlValueAccessor {
   // Whether the list contains objects
   objectList = false;
 
@@ -50,6 +59,13 @@ export class AvSelectComponent extends AvBase {
 
   // If items contains objects, display attribute with this key
   @Input() displayKey = 'display';
+
+  // Value to display as selected
+  displayValue = '';
+
+  // If items contains objects, the selected value will be the attribute with
+  // this key. If null, it will return the entire object.
+  @Input() valueKey = '';
 
   // Search term
   searchKey = '';
@@ -90,6 +106,8 @@ export class AvSelectComponent extends AvBase {
     this._selected = newValue;
   }
 
+  propagateChange = (_: any) => { };
+
   constructor(
     renderer: Renderer2,
     element: ElementRef,
@@ -98,6 +116,28 @@ export class AvSelectComponent extends AvBase {
     private injector: Injector
   ) {
     super(renderer, element);
+  }
+
+  writeValue(value: any) {
+    if (this.objectList && this.valueKey !== '') {
+      const selectedItem = this.items.find(x => x[this.valueKey] === value);
+      this.displayValue = this.itemDisplay(selectedItem);
+    } else if (this.objectList && this.valueKey === '') {
+      const selectedItem = this.items.find(x => JSON.stringify(x) === JSON.stringify(value));
+      this.displayValue = this.itemDisplay(selectedItem);
+    } else {
+      this.displayValue = this.itemDisplay(value);
+    }
+
+    this.selected = value;
+  }
+
+  registerOnChange(fn) {
+    this.propagateChange = fn;
+  }
+
+  registerOnTouched(fn) {
+    // this.propagateChange = fn;
   }
 
   // Creates and appends the overlay component to the DOM
@@ -133,7 +173,14 @@ export class AvSelectComponent extends AvBase {
 
   // Changes selected value
   makeSelection(i) {
-    this.selected = i;
+    if (this.objectList && this.valueKey !== '') {
+      this.selected = i[this.valueKey];
+    } else {
+      this.selected = i;
+    }
+
+    this.displayValue = this.itemDisplay(i);
+    this.propagateChange(this.selected);
     this.open = false;
   }
 

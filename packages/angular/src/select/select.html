@@ -11,8 +11,8 @@
       class="av-selected-display"
       type="text"
       onfocus="this.blur()"
-      [value]="itemDisplay(selected)"
-      [placeholder]="itemDisplay(selected) || placeholder"
+      [value]="displayValue"
+      [placeholder]="displayValue || placeholder"
       readonly
     />
 
@@ -24,7 +24,7 @@
       [(ngModel)]="searchKey"
       (ngModelChange)="filterItems()"
       (click)="$event.stopPropagation()"
-      [placeholder]="itemDisplay(selected) || placeholder"
+      [placeholder]="displayValue || placeholder"
       #search
     />
 

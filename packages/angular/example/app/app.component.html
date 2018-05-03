@@ -18,7 +18,7 @@
     <p>Stuff Here should be under the select drop down</p>
   </div>
 
-  <av-select [items]="objectItems" searchable="true" displayKey="value"></av-select>
+  <av-select [items]="items" searchable="true" displayKey="value" [(ngModel)]="cool" name="morestuff" #morestuff="ngModel"></av-select>
 
   <av-modal [visible]="showModal" (close)="showModal = false">
     <div class="modal-header">New Something</div>
@@ -54,7 +54,11 @@
         <av-form-error *ngIf="something.control.errors && something.control.errors.required && something.dirty">Something is requied.</av-form-error>
       </av-form-field>
 
-      <av-select [items]="items" searchable="true"></av-select>
+      <av-form-field>
+        <label class="av-label">Something</label>
+        <av-select name="athing" [items]="items" searchable="true" ngModel #athing="ngModel"></av-select>
+        {{ athing.value }}
+      </av-form-field>
 
       <av-form-field>
         <label class="av-label">Phone</label>

@@ -12,6 +12,7 @@ export class AppComponent {
   showModal = false;
   stuff = 'dfsa';
   items = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
+  cool = null;
 
   objectItems = [
     {id: 1, value: 'one'},
@@ -24,5 +25,10 @@ export class AppComponent {
     setTimeout(() => {
       this.state = 'button';
     }, 3000);
+  }
+
+  dothestuff() {
+    // this.cool = 3;
+    this.cool = { id: 3, value: 'three' };
   }
 }
