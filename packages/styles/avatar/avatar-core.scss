@@ -1,5 +1,6 @@
 @mixin avatar-mixin($theme) {
   .av-avatar {
+    display: inline-block;
     &.block {
       display: block;
     }
@@ -14,5 +15,9 @@
     font-family: map-get($theme, font-family-ui);
     text-align: center;
     vertical-align: middle;
+
+    span {
+      display: block;
+    }
   }
 }
