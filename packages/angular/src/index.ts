@@ -15,3 +15,6 @@ export * from './radio-buttons/radio-buttons.module';
 
 // Select
 export * from './select/select.module';
+
+// Avatar
+export * from './avatar/avatar.module';
