@@ -10,6 +10,7 @@ import { AvModalModule } from '../../src/modal/modal.module';
 import { AvInputModule } from '../../src/input/input.module';
 import { AvSelectModule } from '../../src/select/select.module';
 import { AvRadioButtonModule } from '../../src/radio-buttons/radio-buttons.module';
+import { AvAvatarModule } from '../../src/avatar/avatar.module';
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import { AvRadioButtonModule } from '../../src/radio-buttons/radio-buttons.modul
     AvInputModule,
     AvSelectModule,
     AvRadioButtonModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AvAvatarModule
   ],
   declarations: [
     AppComponent,

@@ -12,6 +12,8 @@
     </button>
     <button AvButton class="hollow small">Save</button>
   </div>
+
+  <av-avatar *ngFor="let n of names" [name]="n" size="30" image="https://randomuser.me/api/portraits/men/44.jpg"></av-avatar>
   
   <div style="margin-top: 10px; max-width: 600px; height: 100px; overflow: hidden; background: yellow;">
     <av-select [items]="items" searchable="true"></av-select>

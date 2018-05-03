@@ -1,0 +1,18 @@
+@mixin avatar-mixin($theme) {
+  .av-avatar {
+    &.block {
+      display: block;
+    }
+  }
+
+  .avatar-container {
+    box-sizing: border-box;
+    display: inline-block;
+    overflow: hidden;
+    color: white;
+    border-radius: 50%;
+    font-family: map-get($theme, font-family-ui);
+    text-align: center;
+    vertical-align: middle;
+  }
+}

@@ -1,0 +1,21 @@
+<div 
+  class="avatar-container"
+  [ngStyle]="{ width: size + 'px', height: size + 'px', 'background-color': color }"
+>
+  <img 
+    *ngIf="image !== ''"
+    [src]="image"
+    [height]="size"
+  />
+
+  <span 
+    *ngIf="image === ''" 
+    class="avatar-initialis"
+    [style.lineHeight]="size + 'px'"
+    [style.fontSize]="size * 0.3 + 'px'"
+  >
+    {{ initials }}
+  </span>
+</div>
+
+<ng-content></ng-content>

@@ -11,6 +11,7 @@ export class AppComponent {
   state = 'button';
   showModal = false;
   stuff = 'dfsa';
+  names = names;
 
   items = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
 
@@ -21,4 +22,3 @@ export class AppComponent {
     }, 3000);
   }
 }
-
