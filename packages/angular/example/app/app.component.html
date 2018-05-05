@@ -46,12 +46,14 @@
 
       <av-form-field>
         <label class="av-label">Something</label>
-        <av-radio-group name="something" color="secondary" ngModel #something="ngModel" required>
+        <av-radio-group name="something" color="secondary" [(ngModel)]="radioModel" #something="ngModel" required>
           <av-radio-button value="one">One</av-radio-button>
           <av-radio-button value="two">Two</av-radio-button>
           <av-radio-button value="three">Three</av-radio-button>
         </av-radio-group>
         <av-form-error *ngIf="something.control.errors && something.control.errors.required && something.dirty">Something is requied.</av-form-error>
+        <button (click)="radioModel = 'three'">stad</button>
+        {{ radioModel }}
       </av-form-field>
 
       <av-form-field>

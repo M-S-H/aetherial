@@ -13,6 +13,7 @@ export class AppComponent {
   stuff = 'dfsa';
   items = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
   cool = null;
+  radioModel = 'one';
 
   objectItems = [
     {id: 1, value: 'one'},

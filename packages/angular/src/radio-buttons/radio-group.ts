@@ -66,7 +66,7 @@ export class AvRadioGroupComponent implements AfterViewInit, ControlValueAccesso
   }
 
   writeValue(value: string) {
-    this.selected = value;
+    this.radioGroupService.selectValue(value);
   }
 
   registerOnChange(fn) {
