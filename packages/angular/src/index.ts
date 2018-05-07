@@ -1,3 +1,5 @@
+import { AvNotificationsService } from './notifications/notifications.service';
+
 // Button module
 export * from './buttons/button.module';
 
@@ -21,3 +23,4 @@ export * from './avatar/avatar.module';
 
 // Notifications
 export * from './notifications/notifications.module';
+export { AvNotificationsService } from './notifications/notifications.service';
