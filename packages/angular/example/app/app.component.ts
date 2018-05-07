@@ -1,5 +1,6 @@
 import { Component, ViewEncapsulation, ViewChild } from '@angular/core';
 import { trigger, transition, style, animate, state } from '@angular/animations';
+import { AvNotificationsService } from '../../src/notifications/notifications.service';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +16,9 @@ export class AppComponent {
   cool = null;
   radioModel = 'one';
 
+  constructor(private notificationsService: AvNotificationsService) {
+  }
+
   objectItems = [
     {id: 1, value: 'one'},
     {id: 2, value: 'two'},
@@ -26,6 +30,10 @@ export class AppComponent {
     setTimeout(() => {
       this.state = 'button';
     }, 3000);
+  }
+
+  notify() {
+    this.notificationsService.addToast('success', 'AWESOME!');
   }
 
   dothestuff() {

@@ -1,0 +1,22 @@
+<div 
+  *ngFor="let t of toast"
+  class="toast"
+  [ngClass]="[t.type]"
+  (click)="dismissToast(t)"
+  [@toastAnimation]="toastState()"
+>
+  <!-- <div class="icon" *ngIf="t.options['icon']">
+    <i *ngIf="t.type == 'info'" class="fas fa-info-circle"></i>
+    <i *ngIf="t.type == 'success'" class="far fa-check-circle"></i>
+    <i *ngIf="t.type == 'warning'" class="fas fa-exclamation-circle"></i>
+    <i *ngIf="t.type == 'error'" class="fas fa-exclamation-triangle"></i>
+  </div> -->
+  <div class="message">
+    <div>
+      <p>{{t.message}}</p>
+      <ul *ngIf="t.messageList.length > 0">
+        <li *ngFor="let m of t.messageList">{{m}}</li>
+      </ul>
+    </div>
+  </div>
+</div>

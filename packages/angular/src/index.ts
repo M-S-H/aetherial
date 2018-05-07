@@ -18,3 +18,6 @@ export * from './select/select.module';
 
 // Avatar
 export * from './avatar/avatar.module';
+
+// Notifications
+export * from './notifications/notifications.module';

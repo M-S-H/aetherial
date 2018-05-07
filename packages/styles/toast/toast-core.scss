@@ -1,0 +1,91 @@
+@mixin toast-mixin($theme) {
+  $toast-width: 400px;
+  $toast-width-mobile: 100vw;
+
+  .av-notifications-overlay {
+    box-sizing: content-box;
+    width: $toast-width;
+    max-height: 100vh;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1000000;
+    pointer-events: none;
+  }
+
+  .av-notifications-overlay:empty {
+    display: none;
+  }
+
+  .av-notifications-overlay > div {
+    pointer-events: all;
+  }
+
+
+  .toast {
+    margin-bottom: 10px;
+    padding: 10px;
+    display: flex;
+    color: white;
+    border-radius: map-get($theme, border-radius-base);
+    box-shadow: 0px 6px 15px rgba(#000, 0.1);
+
+    &.success {
+      background: map-get($theme, success-color);
+    }
+
+    &.warning {
+      background: map-get($theme, warning-color);
+    }
+
+    &.error {
+      background: map-get($theme, error-color);
+    }
+
+    &.info {
+      background: black;
+    }
+
+    .icon {
+      margin-right: 20px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      flex-grow: 0;
+      flex-shrink: 0;
+      font-size: 24px;
+    }
+
+    .message {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      flex-grow: 1;
+      font-size: 14px;
+
+      ul {
+        margin-top: 5px;
+        margin-bottom: 0;
+        padding-left: 14px;
+      }
+    }
+  }
+
+  .toast p {
+    margin: 0;
+  }
+
+
+  @include mobile($theme) {
+  .av-notifications-overlay {
+    width: $toast-width-mobile;
+    padding: 0;
+  }
+
+  .toast {
+    width: $toast-width-mobile;
+    border-radius: 0;
+  }
+  }
+}

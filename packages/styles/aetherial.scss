@@ -15,6 +15,7 @@
 @import "radio-buttons/radio-button-core";
 @import "radio-buttons/radio-button-theme";
 @import "avatar/avatar-core";
+@import "toast/toast-core";
 
 @mixin aetherial($theme: ()) {
   *,
@@ -42,4 +43,5 @@
   @include select-mixin($theme);
   @include radio-button-mixin($theme);
   @include avatar-mixin($theme);
+  @include toast-mixin($theme);
 }
