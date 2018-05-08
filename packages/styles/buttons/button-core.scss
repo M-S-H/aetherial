@@ -51,13 +51,14 @@
         opacity: 0;
         transform: scale(0.5);
       }
+    }
 
-      &.alternate-state,
-      &.alternate-state:hover,
-      &.alternate-state:disabled {
-        box-shadow: none;
-        line-height: calc(#{map-get($theme, button-height)} - 2px);
-      }
+    &.alternate-state,
+    &.alternate-state:hover,
+    &.alternate-state:disabled {
+      box-shadow: none;
+      line-height: calc(#{map-get($theme, button-height)} - 2px);
+      cursor: default;
     }
 
     .button-loading-state {

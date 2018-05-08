@@ -1,4 +1,4 @@
-import { Component, Input, ElementRef, HostBinding, Renderer2, QueryList, ContentChildren, OnInit } from '@angular/core';
+import { Component, Input, ElementRef, HostBinding, Renderer2, QueryList, ContentChildren, OnInit, AfterViewInit } from '@angular/core';
 import { trigger, transition, style, animate, state } from '@angular/animations';
 import { AvBase } from '../shared/base';
 import { ColorPalette } from '../shared/color';
@@ -32,7 +32,7 @@ import { AvButtonStateDirective } from './button-state';
   ],
 })
 
-export class AvButtonComponent extends AvBase {
+export class AvButtonComponent extends AvBase implements AfterViewInit {
   // // Input to disable the button and surpress all click events
   @HostBinding('disabled') @Input() disabled: boolean;
 
@@ -44,6 +44,7 @@ export class AvButtonComponent extends AvBase {
 
   // List of possible states the button can take on.
   @ContentChildren(AvButtonStateDirective) states: QueryList<AvButtonStateDirective>;
+  @ContentChildren('span') childs: QueryList<HTMLElement>;
 
   // Button State getter
   @Input()
@@ -62,12 +63,16 @@ export class AvButtonComponent extends AvBase {
     } else if (newState === 'loading') {
       this._buttonState = newState;
     } else if (['success', 'error'].indexOf(newState) !== -1) {
-      const s = this.states.find(x => x.state === newState);
-      if (s) {
-        if (!this._originalColor) {
-          this._originalColor = this.color;
+      if (this.states) {
+        const s = this.states.find(x => x.state === newState);
+        if (s) {
+          if (!this._originalColor) {
+            this._originalColor = this.color;
+          }
+          this.color = s.color as ColorPalette || s.state as ColorPalette;
+          this._buttonState = newState;
         }
-        this.color = s.color as ColorPalette || s.state as ColorPalette;
+      } else {
         this._buttonState = newState;
       }
     }
@@ -77,6 +82,10 @@ export class AvButtonComponent extends AvBase {
 
   // Class binding for alternate state
   @HostBinding('class.alternate-state') isAlternateState = false;
+
+  ngAfterViewInit() {
+    this.buttonState = this._buttonState;
+  }
 
   constructor(_renderer: Renderer2, _element: ElementRef) {
     super(_renderer, _element);
