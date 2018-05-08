@@ -14,16 +14,24 @@ export class AppComponent {
   stuff = 'dfsa';
   items = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
   cool = null;
-  radioModel = 'one';
-
-  constructor(private notificationsService: AvNotificationsService) {
-  }
+  radioModel = 0;
+  selectModel = 1;
 
   objectItems = [
-    {id: 1, value: 'one'},
-    {id: 2, value: 'two'},
-    {id: 3, value: 'three'}
+    // {id: 1, value: 'one'},
+    // {id: 2, value: 'two'},
+    // {id: 3, value: 'three'}
   ];
+
+  constructor(private notificationsService: AvNotificationsService) {
+    setTimeout(() => {
+      this.objectItems = [
+        {id: 1, value: 'one'},
+        {id: 2, value: 'two'},
+        {id: 3, value: 'three'}
+      ];
+    }, 100);
+  }
 
   doStuff() {
     this.state = 'loading';

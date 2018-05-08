@@ -1,5 +1,5 @@
 import { Component, forwardRef, AfterViewInit, Input, ContentChildren, QueryList } from '@angular/core';
-import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
+import { NG_VALUE_ACCESSOR, ControlValueAccessor, COMPOSITION_BUFFER_MODE } from '@angular/forms';
 import { AvRadioGroupService } from './radio-group.service';
 import { AvRadioButtonComponent } from './radio-button';
 import { ColorPalette } from '../shared/color';
@@ -58,14 +58,17 @@ export class AvRadioGroupComponent implements AfterViewInit, ControlValueAccesso
   constructor(private radioGroupService: AvRadioGroupService) {
     // Subscribe to the radioGroupService to detect changes on selected value
     radioGroupService.valueSelected$.subscribe(value => {
-      if (value) {
-        this.selected = value;
-        this.propagateChange(this.selected);
+      if (value !== null || value !== undefined) {
+        if (this.selected !== value) {
+          this.selected = value;
+          this.propagateChange(this.selected);
+        }
       }
     });
   }
 
   writeValue(value: string) {
+    this.selected = value;
     this.radioGroupService.selectValue(value);
   }
 

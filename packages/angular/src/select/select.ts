@@ -39,8 +39,9 @@ export class AvSelectComponent extends AvBase implements ControlValueAccessor {
   get items() { return this._items; }
   set items(list: Array<any>) {
     if (list) {
-      this.objectList = typeof list[0] === 'object';
       this._items = list;
+      this.objectList = typeof list[0] === 'object';
+      this.displayText();
     }
   }
 
@@ -105,6 +106,8 @@ export class AvSelectComponent extends AvBase implements ControlValueAccessor {
   private _selected: any;
   get selected() { return this._selected; }
   set selected(newValue: any) {
+    console.log('selected: ' + newValue);
+    this.displayText();
     this._selected = newValue;
   }
 
@@ -121,16 +124,6 @@ export class AvSelectComponent extends AvBase implements ControlValueAccessor {
   }
 
   writeValue(value: any) {
-    if (this.objectList && this.valueKey !== '') {
-      const selectedItem = this.items.find(x => x[this.valueKey] === value);
-      this.displayValue = this.itemDisplay(selectedItem);
-    } else if (this.objectList && this.valueKey === '') {
-      const selectedItem = this.items.find(x => JSON.stringify(x) === JSON.stringify(value));
-      this.displayValue = this.itemDisplay(selectedItem);
-    } else {
-      this.displayValue = this.itemDisplay(value);
-    }
-
     this.selected = value;
   }
 
@@ -200,6 +193,18 @@ export class AvSelectComponent extends AvBase implements ControlValueAccessor {
       });
     } else {
       this.filteredItems = this.items;
+    }
+  }
+
+  displayText() {
+    if (this.objectList && this.valueKey !== '') {
+      const selectedItem = this.items.find(x => x[this.valueKey] === this.selected);
+      this.displayValue = this.itemDisplay(selectedItem);
+    } else if (this.objectList && this.valueKey === '') {
+      const selectedItem = this.items.find(x => JSON.stringify(x) === JSON.stringify(this.selected));
+      this.displayValue = this.itemDisplay(selectedItem);
+    } else {
+      this.displayValue = this.itemDisplay(this.selected);
     }
   }
 

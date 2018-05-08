@@ -1,4 +1,15 @@
 <div class="greetings center">
+  <form style="width: 600px; max-width: 100%;" #form="ngForm">
+    <av-form-field>
+      <label class="av-label">Something</label>
+      <av-select name="athing" [items]="objectItems" [(ngModel)]="selectModel" displayKey="value" valueKey="id"></av-select>
+    </av-form-field>
+  </form>
+
+  {{ form.pristine }}
+</div>
+
+<!-- <div class="greetings center">
   <h1>Button</h1>
   <div>
     <button AvButton buttonState="success">Savae <span avButtonState state="success">Success</span></button>
@@ -80,4 +91,4 @@
       <button AvButton class="hollow error" (click)="showModal = false">Cancel</button>
     </div>
   </av-modal> 
-</div>
+</div> -->

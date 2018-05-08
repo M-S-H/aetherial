@@ -44,7 +44,6 @@ export class AvButtonComponent extends AvBase implements AfterViewInit {
 
   // List of possible states the button can take on.
   @ContentChildren(AvButtonStateDirective) states: QueryList<AvButtonStateDirective>;
-  @ContentChildren('span') childs: QueryList<HTMLElement>;
 
   // Button State getter
   @Input()
