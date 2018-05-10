@@ -1,12 +1,13 @@
+<button (click)="showModal = !showModal">fda</button>
 <div class="greetings center">
-  <form style="width: 600px; max-width: 100%;" #form="ngForm">
+  <form *ngIf="!showModal" style="width: 600px; max-width: 100%;" #form="ngForm">
     <av-form-field>
       <label class="av-label">Something</label>
       <av-select name="athing" [items]="objectItems" [(ngModel)]="selectModel" displayKey="value" valueKey="id"></av-select>
     </av-form-field>
+    {{ selectModel }}
+    {{ form.pristine }}
   </form>
-
-  {{ form.pristine }}
 </div>
 
 <!-- <div class="greetings center">

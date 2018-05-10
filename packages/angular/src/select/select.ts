@@ -11,7 +11,8 @@ import {
   EmbeddedViewRef,
   ViewChild,
   TemplateRef,
-  forwardRef
+  forwardRef,
+  AfterViewInit
 } from '@angular/core';
 import { SvSelectOverlayComponent } from './select-overlay';
 import { AvBase } from '../shared/base';
@@ -29,7 +30,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
     }
   ]
 })
-export class AvSelectComponent extends AvBase implements ControlValueAccessor {
+export class AvSelectComponent extends AvBase implements ControlValueAccessor, AfterViewInit {
   // Whether the list contains objects
   objectList = false;
 
@@ -106,9 +107,8 @@ export class AvSelectComponent extends AvBase implements ControlValueAccessor {
   private _selected: any;
   get selected() { return this._selected; }
   set selected(newValue: any) {
-    console.log('selected: ' + newValue);
-    this.displayText();
     this._selected = newValue;
+    this.displayText();
   }
 
   propagateChange = (_: any) => { };
@@ -121,6 +121,10 @@ export class AvSelectComponent extends AvBase implements ControlValueAccessor {
     private injector: Injector
   ) {
     super(renderer, element);
+  }
+
+  ngAfterViewInit() {
+    this.displayText();
   }
 
   writeValue(value: any) {
