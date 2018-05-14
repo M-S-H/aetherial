@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-import { AvButtonModule, AvSpinnerModule, AvNotificationsModule } from '../../src';
+import { AvButtonModule, AvSpinnerModule, AvNotificationsModule, CheckboxModule } from '../../src';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -24,7 +24,8 @@ import { AvAvatarModule } from '../../src/avatar/avatar.module';
     AvRadioButtonModule,
     BrowserAnimationsModule,
     AvAvatarModule,
-    AvNotificationsModule.forRoot()
+    AvNotificationsModule.forRoot(),
+    CheckboxModule
   ],
   declarations: [
     AppComponent,

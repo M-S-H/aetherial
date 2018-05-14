@@ -1,0 +1,68 @@
+@mixin checkbox-mixin($theme) {
+  .av-checkbox {
+    height: map-get($theme, checkbox-size);
+    display: inline-block;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .av-checkbox-element {
+    box-sizing: border-box;
+    width: map-get($theme, checkbox-size);
+    height: map-get($theme, checkbox-size);
+    display: inline-block;
+    position: relative;
+    border-radius: map-get($theme, border-radius-base);
+    border: 2px solid map-get($theme, dark-gray-color);
+    vertical-align: middle;
+    transition: border-color 0.15s ease-out, background-color 0.15s ease-out;
+
+    svg {
+      width: 12px;
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      opacity: 0;
+      transform: scale(0.25);
+      transition: opacity 0.15s ease-out, transform 0.15s ease-out;
+
+      path {
+        fill: white;
+      }
+    }
+  }
+
+  .av-checkbox-label {
+    margin-left: 5px;
+    font-family: map-get($theme, font-family-ui);
+    font-size: map-get($theme, radio-button-label-text-size);
+    font-weight: map-get($theme, radio-button-label-font-weight);
+    vertical-align: middle;
+    cursor: pointer;
+  }
+
+  input[type=checkbox] {
+    display: none;
+  }
+
+  .av-checkbox-group {
+    .av-checkbox {
+      margin-right: 20px;
+    }
+  }
+
+  // Theming
+  @each $color in map-get($theme, color-palette) {
+    $color-ref: #{$color}-color;
+
+    .av-checkbox.#{$color} .av-checkbox-element.active {
+      border-color: map-get($theme, $color-ref);
+      background: map-get($theme, $color-ref);
+
+      svg {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  }
+}

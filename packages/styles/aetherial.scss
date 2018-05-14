@@ -16,6 +16,8 @@
 @import "radio-buttons/radio-button-theme";
 @import "avatar/avatar-core";
 @import "toast/toast-core";
+@import "checkbox/checkbox-core";
+@import "checkbox/checkbox-theme";
 
 @mixin aetherial($theme: ()) {
   *,
@@ -32,6 +34,7 @@
   $default-theme: map-merge($default-theme, $default-label-theme);
   $default-theme: map-merge($default-theme, $default-select-theme);
   $default-theme: map-merge($default-theme, $default-radio-button-theme);
+  $default-theme: map-merge($default-theme, $default-checkbox-theme);
   $theme: map-merge($default-theme, $theme);
   
   @include av-button-mixin($theme);
@@ -44,4 +47,5 @@
   @include radio-button-mixin($theme);
   @include avatar-mixin($theme);
   @include toast-mixin($theme);
+  @include checkbox-mixin($theme);
 }

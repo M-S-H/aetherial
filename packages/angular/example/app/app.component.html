@@ -1,12 +1,20 @@
 <button (click)="showModal = !showModal">fda</button>
 <div class="greetings center">
   <form *ngIf="!showModal" style="width: 600px; max-width: 100%;" #form="ngForm">
-    <av-form-field>
-      <label class="av-label">Something</label>
-      <av-select name="athing" [items]="objectItems" [(ngModel)]="selectModel" displayKey="value" valueKey="id"></av-select>
-    </av-form-field>
-    {{ selectModel }}
-    {{ form.pristine }}
+    <!-- <av-checkbox color="secondary" name="checkval" value="check" [(ngModel)]="checkboxValue">I'm a checkbox</av-checkbox>
+    {{ checkboxValue }} -->
+    <av-checkbox-group name="checkstuff" [(ngModel)]="checkboxgroupValue" color="warning">
+      <av-checkbox
+        *ngFor="let x of objectItems"
+        [value]="x.id"
+      >
+        {{ x.value }}
+      </av-checkbox>
+    </av-checkbox-group>
+    <br>
+    <button (click)="checkboxgroupValue = [1,3]">dsaf</button>
+
+    {{ form.value | json }}
   </form>
 </div>
 
