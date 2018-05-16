@@ -1,6 +1,6 @@
 import { Component, Renderer2, ElementRef, Input, Optional } from '@angular/core';
 import { AvBase } from '../shared/base';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 import { AvRadioGroupService } from './radio-group.service';
 
 @Component({
