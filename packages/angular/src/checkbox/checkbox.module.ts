@@ -11,4 +11,4 @@ import { AvCheckboxGroupComponent } from './checkbox-group';
   declarations: [ AvCheckboxComponent, AvCheckboxGroupComponent ],
   providers: [],
 })
-export class CheckboxModule { }
+export class AvCheckboxModule { }
