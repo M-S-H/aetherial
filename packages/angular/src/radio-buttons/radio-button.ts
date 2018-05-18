@@ -1,4 +1,4 @@
-import { Component, Renderer2, ElementRef, Input, Optional } from '@angular/core';
+import { Component, Renderer2, ElementRef, Input, Optional, ViewEncapsulation } from '@angular/core';
 import { AvBase } from '../shared/base';
 import { Subscription } from 'rxjs';
 import { AvRadioGroupService } from './radio-group.service';
@@ -6,6 +6,7 @@ import { AvRadioGroupService } from './radio-group.service';
 @Component({
   selector: 'av-radio-button',
   templateUrl: 'radio-button.html',
+  encapsulation: ViewEncapsulation.None,
   host: {
     'class': 'av-radio-button',
     '(click)': 'selected = true'

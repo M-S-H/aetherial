@@ -1,10 +1,11 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { avatarColors } from './avatar-colors';
 
 @Component({
   selector: 'av-avatar',
   templateUrl: 'avatar.html',
-  host: { 'class': 'av-avatar' }
+  host: { 'class': 'av-avatar' },
+  encapsulation: ViewEncapsulation.None
 })
 
 export class AvAvatarComponent {

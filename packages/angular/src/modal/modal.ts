@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, HostBinding } from '@angular/core';
+import { Component, Input, Output, EventEmitter, HostBinding, ViewEncapsulation } from '@angular/core';
 import { trigger, transition, style, animate, state } from '@angular/animations';
 import { visitSiblingRenderNodes } from '@angular/core/src/view/util';
 
@@ -6,6 +6,7 @@ import { visitSiblingRenderNodes } from '@angular/core/src/view/util';
   selector: 'av-modal',
   templateUrl: 'modal.html',
   host: { 'class': 'av-modal' },
+  encapsulation: ViewEncapsulation.None,
   animations: [
     trigger('screen', [
       state('in', style({ opacity: 1 })),

@@ -1,4 +1,4 @@
-import { Component, forwardRef, AfterViewInit, Input, ContentChildren, QueryList } from '@angular/core';
+import { Component, forwardRef, AfterViewInit, Input, ContentChildren, QueryList, ViewEncapsulation } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor, COMPOSITION_BUFFER_MODE } from '@angular/forms';
 import { AvRadioGroupService } from './radio-group.service';
 import { AvRadioButtonComponent } from './radio-button';
@@ -10,6 +10,7 @@ import { ColorPalette } from '../shared/color';
     <ng-content select="av-radio-button"></ng-content>
   `,
   host: { 'class': 'av-radio-group' },
+  encapsulation: ViewEncapsulation.None,
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,

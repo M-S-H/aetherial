@@ -1,4 +1,4 @@
-import { Component, forwardRef, AfterViewInit, ContentChildren, QueryList, Input } from '@angular/core';
+import { Component, forwardRef, AfterViewInit, ContentChildren, QueryList, Input, ViewEncapsulation } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { AvCheckboxGroupService } from './checkbox-group.service';
 import { AvCheckboxComponent } from './checkbox';
@@ -10,6 +10,7 @@ import { ColorPalette } from '../shared/color';
     <ng-content></ng-content>
   `,
   host: { 'class': 'av-checkbox-group' },
+  encapsulation: ViewEncapsulation.None,
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { Toast, NotificationType } from './toast';
 
 import {
@@ -13,6 +13,7 @@ import {
   selector: 'av-notifications-overlay',
   templateUrl: 'notifications-overlay.html',
   host: { class: 'av-notifications-overlay' },
+  encapsulation: ViewEncapsulation.None,
   animations: [
     trigger('toastAnimation', [
       // Desktop
@@ -48,7 +49,6 @@ import {
     ])
   ],
 })
-
 export class AvNotificationsOverlayComponent {
   // Array of toast to display
   toast = [];

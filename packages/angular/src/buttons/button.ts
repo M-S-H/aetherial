@@ -1,4 +1,15 @@
-import { Component, Input, ElementRef, HostBinding, Renderer2, QueryList, ContentChildren, OnInit, AfterViewInit } from '@angular/core';
+import {
+  Component,
+  Input,
+  ElementRef,
+  HostBinding,
+  Renderer2,
+  QueryList,
+  ContentChildren,
+  OnInit,
+  AfterViewInit,
+  ViewEncapsulation
+} from '@angular/core';
 import { trigger, transition, style, animate, state } from '@angular/animations';
 import { AvBase } from '../shared/base';
 import { ColorPalette } from '../shared/color';
@@ -8,6 +19,7 @@ import { AvButtonStateDirective } from './button-state';
   selector: 'button[AvButton]',
   host: { 'class': 'av-button' },
   templateUrl: 'button.html',
+  encapsulation: ViewEncapsulation.None,
   animations: [
     trigger('loadingState', [
       state('in', style({ opacity: 1, transform: 'scale(1)' })),

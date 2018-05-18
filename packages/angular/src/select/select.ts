@@ -12,7 +12,8 @@ import {
   ViewChild,
   TemplateRef,
   forwardRef,
-  AfterViewInit
+  AfterViewInit,
+  ViewEncapsulation
 } from '@angular/core';
 import { SvSelectOverlayComponent } from './select-overlay';
 import { AvBase } from '../shared/base';
@@ -22,6 +23,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
   selector: 'av-select',
   templateUrl: 'select.html',
   host: { 'class': 'av-select' },
+  encapsulation: ViewEncapsulation.None,
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,

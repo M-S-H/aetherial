@@ -1,4 +1,14 @@
-import { Component, ViewChild, ViewContainerRef, Input, TemplateRef, HostBinding, HostListener, ElementRef } from '@angular/core';
+import {
+  Component,
+  ViewChild,
+  ViewContainerRef,
+  Input,
+  TemplateRef,
+  HostBinding,
+  HostListener,
+  ElementRef,
+  ViewEncapsulation
+} from '@angular/core';
 import { trigger, transition, style, animate, state } from '@angular/animations';
 
 @Component({
@@ -10,6 +20,7 @@ import { trigger, transition, style, animate, state } from '@angular/animations'
     <ng-container #container></ng-container>
   `,
   host: { 'class': 'av-select-overlay' },
+  encapsulation: ViewEncapsulation.None,
   animations: [
     trigger('slideDown', [
       state('in', style({ opacity: 1, 'transform': 'translateY(0)' })),
