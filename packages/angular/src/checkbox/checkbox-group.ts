@@ -21,7 +21,7 @@ import { ColorPalette } from '../shared/color';
   ]
 })
 
-export class AvCheckboxGroupComponent implements AfterViewInit {
+export class AvCheckboxGroupComponent {
   // Child checkboxes
   @ContentChildren(forwardRef(() => AvCheckboxComponent)) _checkboxes: QueryList<AvCheckboxComponent>;
 
@@ -52,13 +52,7 @@ export class AvCheckboxGroupComponent implements AfterViewInit {
   }
 
   registerOnTouched(fn) {
-    // this.propagateChange = fn;
-  }
-
-  ngAfterViewInit() {
-    this._checkboxes.changes.subscribe(checkboxes => {
-      this.checkboxGroupService.update();
-    });
+    this.propagateChange = fn;
   }
 
   // Propagates color to child checkboxes

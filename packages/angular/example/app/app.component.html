@@ -14,6 +14,8 @@
     <br>
     <button (click)="checkboxgroupValue = [1,3]">dsaf</button>
 
+    <av-checkbox [ngModel]="true" name="hi" color="secondary" #check="ngModel"></av-checkbox>
+
     {{ form.value | json }}
     {{ form.pristine }}
   </form>

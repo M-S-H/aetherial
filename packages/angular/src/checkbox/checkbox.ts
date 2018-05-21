@@ -10,7 +10,7 @@ import {
   AfterViewInit
 } from '@angular/core';
 import { AvBase } from '../shared/base';
-import { NG_VALUE_ACCESSOR, COMPOSITION_BUFFER_MODE } from '@angular/forms';
+import { NG_VALUE_ACCESSOR, COMPOSITION_BUFFER_MODE, ControlValueAccessor } from '@angular/forms';
 import { AvCheckboxGroupService } from './checkbox-group.service';
 
 @Component({
@@ -27,7 +27,7 @@ import { AvCheckboxGroupService } from './checkbox-group.service';
   ]
 })
 
-export class AvCheckboxComponent extends AvBase implements AfterViewInit {
+export class AvCheckboxComponent extends AvBase implements AfterViewInit, ControlValueAccessor {
   // The value of the checkbox
   private _value = null;
   @Input()
@@ -61,16 +61,11 @@ export class AvCheckboxComponent extends AvBase implements AfterViewInit {
     _element: ElementRef
   ) {
     super(_renderer, _element);
-    // this._checked = this.checkboxGroupService.selected.indexOf(this.value) !== -1;
-    // this.propagateChange(this._checked);
   }
 
   ngAfterViewInit() {
-    console.log('init!!!!!');
     // Setup subscription if in group
     if (this.checkboxGroupService) {
-      // const values = null;
-      // this._checked = this.checkboxGroupService.selected.indexOf(this.value) !== -1;
       this.checkboxGroupService.selectedValues$.subscribe(values => {
         this._checked = values.indexOf(this.value) !== -1;
         this.propagateChange(this._checked);
@@ -81,13 +76,8 @@ export class AvCheckboxComponent extends AvBase implements AfterViewInit {
   propagateChange = (_: any) => { };
 
   writeValue(value: boolean) {
-    this.checked = value;
+    this._checked = value;
   }
-
-  // shouldCheck(values) {
-  //   this._checked = values.indexOf(this.value) !== -1;
-  //   this.propagateChange(this._checked);
-  // }
 
   registerOnChange(fn) {
     this.propagateChange = fn;

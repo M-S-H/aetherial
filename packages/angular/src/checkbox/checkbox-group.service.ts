@@ -21,10 +21,6 @@ export class AvCheckboxGroupService {
     }
   }
 
-  update() {
-    // this._selectedValues.next(this._selected);
-  }
-
   // Adds a value to the array
   addValue(value: any) {
     this._selected.push(value);
