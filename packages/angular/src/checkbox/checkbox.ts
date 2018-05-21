@@ -1,4 +1,14 @@
-import { Component, Renderer2, ElementRef, forwardRef, Input, HostListener, Optional, ViewEncapsulation, AfterViewInit } from '@angular/core';
+import {
+  Component,
+  Renderer2,
+  ElementRef,
+  forwardRef,
+  Input,
+  HostListener,
+  Optional,
+  ViewEncapsulation,
+  AfterViewInit
+} from '@angular/core';
 import { AvBase } from '../shared/base';
 import { NG_VALUE_ACCESSOR, COMPOSITION_BUFFER_MODE } from '@angular/forms';
 import { AvCheckboxGroupService } from './checkbox-group.service';
