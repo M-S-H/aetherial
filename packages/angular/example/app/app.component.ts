@@ -18,22 +18,22 @@ export class AppComponent {
   selectModel = 1;
 
   objectItems = [
-    {id: 1, value: 'one'},
-    {id: 2, value: 'two'},
-    {id: 3, value: 'three'}
+    // {id: 1, value: 'one'},
+    // {id: 2, value: 'two'},
+    // {id: 3, value: 'three'}
   ];
 
   checkboxValue = false;
-  checkboxgroupValue = [];
+  checkboxgroupValue = [1, 3];
 
   constructor(private notificationsService: AvNotificationsService) {
-    // setTimeout(() => {
-    //   this.objectItems = [
-    //     {id: 1, value: 'one'},
-    //     {id: 2, value: 'two'},
-    //     {id: 3, value: 'three'}
-    //   ];
-    // }, 100);
+    setTimeout(() => {
+      this.objectItems = [
+        {id: 1, value: 'one'},
+        {id: 2, value: 'two'},
+        {id: 3, value: 'three'}
+      ];
+    }, 100);
   }
 
   doStuff() {

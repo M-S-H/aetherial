@@ -50,18 +50,16 @@ export class AvButtonComponent extends AvBase implements AfterViewInit {
 
   // The button's state: button, success, error, loading
   private _buttonState = 'button';
+  @Input()
+  get buttonState() {
+    return this._buttonState;
+  }
 
   // The button's original color
   private _originalColor: ColorPalette;
 
   // List of possible states the button can take on.
   @ContentChildren(AvButtonStateDirective) states: QueryList<AvButtonStateDirective>;
-
-  // Button State getter
-  @Input()
-  get buttonState() {
-    return this._buttonState;
-  }
 
   // Button State setter
   set buttonState(newState: string) {
@@ -88,7 +86,7 @@ export class AvButtonComponent extends AvBase implements AfterViewInit {
       }
     }
 
-    this.isAlternateState = this.buttonState !== 'button';
+    this.isAlternateState = this._buttonState !== 'button';
   }
 
   // Class binding for alternate state

@@ -56,7 +56,9 @@ export class AvCheckboxGroupComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.propagateColor();
+    this._checkboxes.changes.subscribe(checkboxes => {
+      this.checkboxGroupService.update();
+    });
   }
 
   // Propagates color to child checkboxes

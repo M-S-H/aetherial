@@ -5,6 +5,7 @@ import { Subject, Observable } from 'rxjs';
 export class AvCheckboxGroupService {
   // Holds the checked values
   private _selected = [];
+  get selected() { return this._selected; }
 
   // Subject to watch
   private _selectedValues = new Subject<Array<any>>();
@@ -18,6 +19,10 @@ export class AvCheckboxGroupService {
       this._selected = values;
       this._selectedValues.next(this._selected);
     }
+  }
+
+  update() {
+    // this._selectedValues.next(this._selected);
   }
 
   // Adds a value to the array
