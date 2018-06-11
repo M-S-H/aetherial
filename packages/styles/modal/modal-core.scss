@@ -17,6 +17,17 @@
     background-color: map-get($theme, modal-screen-color);
   }
 
+  .modal-dialog-container {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    pointer-events: none;
+
+    & > .modal-dialog {
+      pointer-events: all;
+    }
+  }
+
   // Modal Dialog Box
   .modal-dialog {
     width: 100%;
@@ -24,7 +35,7 @@
     max-height: calc(100% - 40px);
     display: flex;
     flex-direction: column;
-    position: fixed;
+    position: absolute;
     top: map-get($theme, modal-position-y);
     left: map-get($theme, modal-position-x);
     overflow: hidden;
@@ -32,6 +43,23 @@
     border-radius: 4px;
     box-shadow: map-get($theme, modal-shadow);
     transform: translate(map-get($theme, modal-translate-x), map-get($theme, modal-translate-y));
+
+    .close-modal {
+      width: 12px;
+      height: 12px;
+      position: absolute;
+      top: map-get($theme, modal-padding);
+      right: map-get($theme, modal-padding);
+      cursor: pointer;
+      
+      polygon {
+        fill: map-get($theme, error-color);
+      }
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
 
     // Dialog Header
     .modal-header {
@@ -50,7 +78,7 @@
     .modal-header,
     .modal-content,
     .modal-actions {
-      padding: 10px;
+      padding: map-get($theme, modal-padding);
     }
 
     // Header and Content

@@ -10,6 +10,8 @@ $default-modal-theme: (
   modal-translate-x: -50%,
   modal-translate-y: -50%,
 
+  modal-padding: 10px,
+
   modal-heading-font-size: 18px,
   modal-heading-color: map-get($default-theme, light-gray-color),
   modal-action-color: map-get($default-theme, light-gray-color),

@@ -20,13 +20,13 @@ import { visitSiblingRenderNodes } from '@angular/core/src/view/util';
     ]),
 
     trigger('dialog', [
-      state('in', style({ opacity: 1, 'margin-top': '0px' })),
+      state('in', style({ opacity: 1, transform: 'translalteY(0)' })),
       transition(':enter', [
-        style({ opacity: 0, 'margin-top': '-20px' }),
+        style({ opacity: 0, transform: 'translateY(-20px)' }),
         animate('200ms ease-in-out')
       ]),
       transition(':leave', [
-        animate('200ms ease-in-out', style({ opacity: 0, 'margin-top': '-20px' }))
+        animate('200ms ease-in-out', style({ opacity: 0, transform: 'translateY(-20px)' }))
       ])
     ])
   ]
@@ -45,6 +45,8 @@ export class AvModalComponent {
   @Input() screenClose = true;
 
   @Input() canCloseSelf = true;
+
+  @Input() showClose = true;
 
   constructor() { }
 
