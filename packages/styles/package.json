@@ -1,6 +1,6 @@
 {
   "name": "@aetherial/aetherial-styles",
-  "version": "0.0.22",
+  "version": "0.0.23",
   "description": "Styling for aetherial-vue and aetherial-angular",
   "main": "aetherial.scss",
   "keywords": [],
