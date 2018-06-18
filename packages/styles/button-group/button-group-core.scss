@@ -2,7 +2,7 @@
   .av-button-group {
     box-sizing: border-box;
     height: map-get($theme, button-group-height);
-    display: inline-block;
+    display: inline-flex;
     border-radius: map-get($theme, button-group-border-radius);
     border: 1px solid map-get($theme, primary-color);
 

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ElementRef } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AvRadioGroupService } from '../radio-buttons/radio-group.service';
 
@@ -21,17 +21,14 @@ export class AvButtonGroupItemComponent {
   // Whether the button is selected
   private _selected = false;
 
-  constructor(private buttonGroupService: AvRadioGroupService) {
+  constructor(private buttonGroupService: AvRadioGroupService, private _element: ElementRef) {
     // Setup subscription
     this.subscription = buttonGroupService.valueSelected$.subscribe(value => {
-      console.log('got it');
       this._selected = this.value === value;
-      console.log(this._selected);
     });
   }
 
   select() {
-    console.log('hi');
     this.buttonGroupService.selectValue(this.value);
   }
 }
