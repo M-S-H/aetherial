@@ -1,0 +1,53 @@
+@mixin button-group-mixin($theme) {
+  .av-button-group {
+    box-sizing: border-box;
+    height: map-get($theme, button-group-height);
+    display: inline-block;
+    border-radius: map-get($theme, button-group-border-radius);
+    border: 1px solid map-get($theme, primary-color);
+
+    // Items
+    .av-button-group-item {
+      height: map-get($theme, button-group-height) - 2px;
+      padding: 0px map-get($theme, button-group-padding);
+      display: inline-block;
+      position: relative;
+      border-right: 1px solid map-get($theme, primary-color);
+      font-family: map-get($theme, font-family-ui);
+      font-size: 11px;
+      font-weight: 500;
+      line-height: map-get($theme, button-group-height) - 2px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      user-select: none;
+
+      &:last-child {
+        border-right: none;
+      }
+    }
+  }
+
+  // Theming
+  @each $color in map-get($theme, color-palette) {
+    $color-ref: #{$color}-color;
+
+    .av-button-group.#{$color} {
+      border-color: map-get($theme, $color-ref);
+
+      .av-button-group-item {
+        color: map-get($theme, $color-ref);
+        border-color: map-get($theme, primary-color);
+
+        &:hover {
+          background: rgba(map-get($theme, $color-ref), 0.1);
+        }
+
+        &.active {
+          color: white;
+          background: map-get($theme, $color-ref);
+        }
+      }
+    }
+  }
+}

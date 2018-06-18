@@ -1,4 +1,5 @@
-import { AvNotificationsService } from './notifications/notifications.service';
+// Shared module
+export * from './shared/shared.module';
 
 // Button module
 export * from './buttons/button.module';
@@ -27,3 +28,6 @@ export { AvNotificationsService } from './notifications/notifications.service';
 
 // Checkboxes
 export * from './checkbox/checkbox.module';
+
+// Button Group
+export * from './button-group/button-group.module';

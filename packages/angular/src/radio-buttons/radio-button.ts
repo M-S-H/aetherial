@@ -42,7 +42,7 @@ export class AvRadioButtonComponent extends AvBase {
 
     // Set up radio group subscription
     if (radioGroupService) {
-      this.subscription =  radioGroupService.valueSelected$.subscribe(value => {
+      this.subscription = radioGroupService.valueSelected$.subscribe(value => {
         this._selected = value === this.value;
       });
     }

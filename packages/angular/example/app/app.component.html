@@ -1,88 +1,16 @@
 <button (click)="showModal = !showModal">fda</button>
 
 <div class="greetings center">
-  <h1>Button</h1>
-  <div>
-    <button AvButton buttonState="success">Savae <span avButtonState state="success">Success</span></button>
-    <button AvButton color="secondary" class="hollow" (click)="showModal = true">Save</button>
-    <button AvButton color="error" class="flat" (click)="notify()">Do Some Stuff</button>
-    <a class="av-link error">Do Some Stuff</a>
-    <button AvButton (click)="doStuff()" [buttonState]="state" class="small">
-      Normal
-      <span avButtonState state="success">Success</span>
-      <span avButtonState state="error">Error</span>
-    </button>
-    <button AvButton class="hollow small">Save</button>
-  </div>
+
+  <!-- <av-checkbox [ngModel]="true">Hello</av-checkbox> -->
   
-  <div style="margin-top: 10px; max-width: 600px; height: 100px; overflow: hidden; background: yellow;">
-    <av-select [items]="items"></av-select>
-    <p>Stuff Here should be under the select drop down</p>
-  </div>
+  <av-button-group [ngModel]="'two'" #test="ngModel">
+    <av-button-group-item value="one">one</av-button-group-item>
+    <av-button-group-item value="two">two</av-button-group-item>
+    <av-button-group-item value="three">three</av-button-group-item>
+    <av-button-group-item value="four">four</av-button-group-item>
+  </av-button-group>
 
-  <av-select [items]="items" searchable="true" displayKey="value" [(ngModel)]="cool" name="morestuff" #morestuff="ngModel"></av-select>
+  {{ test.value }}
 
-  <av-modal [visible]="showModal" (close)="showModal = false">
-    <div class="modal-header">New Something</div>
-    <div class="modal-back"></div>
-
-    <div class="modal-content">
-    <form style="width: 600px; max-width: 100%;" #form="ngForm">
-      <av-form-field>
-        <label class="av-label">Name</label>
-        <input type="text" avInput name="name" #name="ngModel" ngModel required>
-        <av-form-error *ngIf="name.control.errors && name.control.errors.required && name.dirty">Name is requied.</av-form-error>
-      </av-form-field>
-    
-      <av-form-field>
-        <label class="av-label">Phone</label>
-        <input type="text" avInput name="phone" #phone="ngModel" ngModel required minlength="8">
-        <av-form-error *ngIf="phone.control.errors && phone.control.errors.required && phone.dirty">Phone is requied.</av-form-error>
-        <av-form-error *ngIf="phone.control.errors && phone.control.errors.minlength && phone.dirty">Phone must be at least 8 characters.</av-form-error>
-      </av-form-field>
-
-      <av-form-field>
-        <label class="av-label">Description</label>
-        <textarea type="text" avInput name="desc" #desc="ngModel" ngModel required maxlength="100"></textarea>
-        <av-form-error *ngIf="desc.control.errors && desc.control.errors.required && desc.dirty">desc is requied.</av-form-error>
-        <av-form-error *ngIf="desc.control.errors && desc.control.errors.minlength && desc.dirty">Phone must be less than 100 characters.</av-form-error>
-      </av-form-field>
-
-      <av-form-field>
-        <label class="av-label">Something</label>
-        <av-radio-group name="something" color="secondary" [(ngModel)]="radioModel" #something="ngModel" required>
-          <av-radio-button value="one">One</av-radio-button>
-          <av-radio-button value="two">Two</av-radio-button>
-          <av-radio-button value="three">Three</av-radio-button>
-        </av-radio-group>
-        <av-form-error *ngIf="something.control.errors && something.control.errors.required && something.dirty">Something is requied.</av-form-error>
-        <button>stad</button>
-        {{ radioModel }}
-      </av-form-field>
-
-      <av-form-field>
-        <label class="av-label">Something</label>
-        <av-select name="athing" [items]="items" searchable="true" ngModel #athing="ngModel"></av-select>
-        {{ athing.value }}
-      </av-form-field>
-
-      <av-form-field>
-        <label class="av-label">Phone</label>
-        <input type="text" avInput name="phone" #phone="ngModel" ngModel required minlength="8">
-        <av-form-error *ngIf="phone.control.errors && phone.control.errors.required && phone.dirty">Phone is requied.</av-form-error>
-        <av-form-error *ngIf="phone.control.errors && phone.control.errors.minlength && phone.dirty">Phone must be at least 8 characters.</av-form-error>
-      </av-form-field>
-    </form>
-
-    {{ form.value | json }}
-    </div>
-
-    <div class="modal-actions">
-      <button AvButton>
-        Save
-        <span avButtonState state="error">Invalid</span>
-      </button>
-      <button AvButton class="hollow error" (click)="showModal = false">Cancel</button>
-    </div>
-  </av-modal> 
 </div>

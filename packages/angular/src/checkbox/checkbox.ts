@@ -10,7 +10,7 @@ import {
   AfterViewInit
 } from '@angular/core';
 import { AvBase } from '../shared/base';
-import { NG_VALUE_ACCESSOR, COMPOSITION_BUFFER_MODE, ControlValueAccessor } from '@angular/forms';
+import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 import { AvCheckboxGroupService } from './checkbox-group.service';
 
 @Component({
