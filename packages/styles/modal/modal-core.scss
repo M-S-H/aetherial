@@ -66,19 +66,18 @@
       font-family: map-get($theme, font-family-base);
       font-size: map-get($theme, modal-heading-font-size);
       font-weight: bold;
+      padding: map-get($theme, modal-header-padding);
     }
 
     // Dialog Main Content
     .modal-content {
       flex-grow: 1;
       overflow: auto;
+      padding: map-get($theme, modal-content-padding);
     }
 
-    // All sections
-    .modal-header,
-    .modal-content,
     .modal-actions {
-      padding: map-get($theme, modal-padding);
+      padding: map-get($theme, modal-actions-padding);
     }
 
     // Header and Content
