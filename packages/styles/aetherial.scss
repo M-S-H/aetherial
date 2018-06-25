@@ -20,6 +20,8 @@
 @import "checkbox/checkbox-theme";
 @import "button-group/button-group-core";
 @import "button-group/button-group-theme";
+@import "switch/switch-core";
+@import "switch/switch-theme";
 
 @mixin aetherial($theme: ()) {
   *,
@@ -38,6 +40,7 @@
   $default-theme: map-merge($default-theme, $default-radio-button-theme);
   $default-theme: map-merge($default-theme, $default-checkbox-theme);
   $default-theme: map-merge($default-theme, $default-button-group-theme);
+  $default-theme: map-merge($default-theme, $default-switch-theme);
   $theme: map-merge($default-theme, $theme);
   
   @include av-button-mixin($theme);
@@ -52,4 +55,5 @@
   @include toast-mixin($theme);
   @include checkbox-mixin($theme);
   @include button-group-mixin($theme);
+  @include switch-mixin($theme);
 }

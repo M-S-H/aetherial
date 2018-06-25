@@ -10,6 +10,10 @@ export class AvCheckboxGroupService {
   // Subject to watch
   private _selectedValues = new Subject<Array<any>>();
 
+  // Whether to allow multiple values
+  multiple = true;
+
+
   // Observable
   selectedValues$: Observable<any> = this._selectedValues.asObservable();
 
@@ -23,7 +27,11 @@ export class AvCheckboxGroupService {
 
   // Adds a value to the array
   addValue(value: any) {
-    this._selected.push(value);
+    if (this.multiple) {
+      this._selected.push(value);
+    } else {
+      this._selected = [value];
+    }
     this._selectedValues.next(this._selected);
   }
 

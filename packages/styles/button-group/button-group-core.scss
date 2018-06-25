@@ -37,7 +37,7 @@
 
       .av-button-group-item {
         color: map-get($theme, $color-ref);
-        border-color: map-get($theme, primary-color);
+        border-color: map-get($theme, $color-ref);
 
         &:hover {
           background: rgba(map-get($theme, $color-ref), 0.1);

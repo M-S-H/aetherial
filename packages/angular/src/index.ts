@@ -31,3 +31,6 @@ export * from './checkbox/checkbox.module';
 
 // Button Group
 export * from './button-group/button-group.module';
+
+// Switch
+export * from './switch/switch.module';

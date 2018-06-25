@@ -1,0 +1,63 @@
+@mixin switch-mixin($theme) {
+  $av-switch-size: map-get($theme, av-switch-size);
+
+  .av-switch {
+    height: $av-switch-size;
+    display: inline-block;
+
+    .av-switch-element {
+      width: $av-switch-size * 2;
+      height: $av-switch-size;
+      padding: 2px;
+      display: inline-block;
+      background-color: map-get($theme, medium-gray-color);
+      border-radius: $av-switch-size / 2;
+      cursor: pointer;
+      box-sizing: border-box;
+      transition: background 0.2s ease-in-out;
+      vertical-align: middle;
+
+      &::before {
+        content: ' ';
+        display: block;
+        position: relative;
+        width: $av-switch-size - 4px;
+        height: $av-switch-size - 4px;
+        background: white;
+        border-radius: 50%;
+        transition: 0.2s ease-in-out;
+      }
+    }
+
+    .av-switch-element.on {
+      &::before {
+        box-shadow: 0 0 5px rgba(#000, 0.5);
+        transform: translateX($av-switch-size);
+      }
+    }
+
+    .av-switch-label {
+      margin-left: 5px;
+      font-family: map-get($theme, font-family-ui);
+      font-size: map-get($theme, radio-button-label-text-size);
+      font-weight: map-get($theme, radio-button-label-font-weight);
+      vertical-align: middle;
+      cursor: pointer;
+    }
+
+    &:hover {
+      .av-switch-element {
+        background-color: lighten(map-get($theme, medium-gray-color), 5%);
+      }
+    }
+  }
+
+  // Theming
+  @each $color in map-get($theme, color-palette) {
+    $color-ref: #{$color}-color;
+
+    .av-switch.#{$color} .av-switch-element.on {
+      background: map-get($theme, $color-ref);
+    }
+  }
+}

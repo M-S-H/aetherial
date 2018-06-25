@@ -11,8 +11,21 @@
     <av-button-group-item value="four">four</av-button-group-item>
   </av-button-group>
 
-  <button AvButton>fdasf</button>
+  {{ test.value }}
 
-  <!-- {{ test.value }} -->
+  <br><br>
+
+    <av-button-group color="secondary" [multiple]="true" [ngModel]="['two']" #test2="ngModel">
+      <av-button-group-item value="one">one</av-button-group-item>
+      <av-button-group-item value="two">two</av-button-group-item>
+      <av-button-group-item value="three">three</av-button-group-item>
+      <av-button-group-item value="four">four</av-button-group-item>
+    </av-button-group>
+
+    {{ test2.value | json }}
+
+  <!-- <button AvButton>fdasf</button> -->
+
+  <!-- <av-switch name="stuff" ngModel #stuff="ngModel">Yay</av-switch> {{ stuff.value }} -->
 
 </div>

@@ -1,6 +1,6 @@
 import { Component, Input, ElementRef } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { AvRadioGroupService } from '../radio-buttons/radio-group.service';
+import { AvCheckboxGroupService } from '../checkbox/checkbox-group.service';
 
 @Component({
   selector: 'av-button-group-item',
@@ -8,7 +8,7 @@ import { AvRadioGroupService } from '../radio-buttons/radio-group.service';
   host: {
     'class': 'av-button-group-item',
     '[class.active]': '_selected',
-    '(click)': 'select()'
+    '(click)': 'toggle()'
   }
 })
 export class AvButtonGroupItemComponent {
@@ -21,14 +21,20 @@ export class AvButtonGroupItemComponent {
   // Whether the button is selected
   private _selected = false;
 
-  constructor(private buttonGroupService: AvRadioGroupService, private _element: ElementRef) {
+  get element() { return this._element; }
+
+  constructor(private buttonGroupService: AvCheckboxGroupService, private _element: ElementRef) {
     // Setup subscription
-    this.subscription = buttonGroupService.valueSelected$.subscribe(value => {
-      this._selected = this.value === value;
+    this.subscription = buttonGroupService.selectedValues$.subscribe(values => {
+      this._selected = values.indexOf(this.value) !== -1;
     });
   }
 
-  select() {
-    this.buttonGroupService.selectValue(this.value);
+  toggle() {
+    if (this._selected && this.buttonGroupService.multiple) {
+      this.buttonGroupService.removeValue(this.value);
+    } else {
+      this.buttonGroupService.addValue(this.value);
+    }
   }
 }
