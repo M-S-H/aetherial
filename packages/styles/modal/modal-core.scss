@@ -44,6 +44,21 @@
     box-shadow: map-get($theme, modal-shadow);
     transform: translate(map-get($theme, modal-translate-x), map-get($theme, modal-translate-y));
 
+    // &::before {
+    //   content: ' ';
+    //   width: 100%;
+    //   height: 100%;
+    //   position: absolute;
+    //   top: 0;
+    //   left: 0;
+    //   display: block;
+    //   box-shadow: map-get($theme, modal-shadow);
+    //   transition: opacity 1.2s cubic-bezier(0.215, 0.61, 0.355, 1);
+    //   opacity: 0;
+    // }
+
+    // &.visible::before { opacity: 1; }
+
     .close-modal {
       width: 12px;
       height: 12px;
@@ -67,6 +82,7 @@
       font-size: map-get($theme, modal-heading-font-size);
       font-weight: bold;
       padding: map-get($theme, modal-header-padding);
+      border-radius: 4px 4px 0 0;
     }
 
     // Dialog Main Content
@@ -78,6 +94,7 @@
 
     .modal-actions {
       padding: map-get($theme, modal-actions-padding);
+      border-radius:  0 0 4px 4px;
     }
 
     // Header and Content
@@ -114,7 +131,6 @@
   }
 
   @include mobile($theme) {
-    .av-modal .modal-dialog,
     .av-modal.large .modal-dialog {
       max-width: calc(100% - 20px);
       height: calc(100% - 20px);

@@ -45,7 +45,7 @@ export class AvButtonGroupComponent extends AvBase implements ControlValueAccess
       } else {
         this._selectedValue = value[0];
       }
-      console.log(this._selectedValue);
+
       this.propagateChange(this._selectedValue);
     });
   }
