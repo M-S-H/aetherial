@@ -131,8 +131,11 @@
   }
 
   @include mobile($theme) {
-    .av-modal.large .modal-dialog {
+    .av-modal .modal-dialog {
       max-width: calc(100% - 20px);
+    }
+
+    .av-modal.large .modal-dialog {
       height: calc(100% - 20px);
       max-height: calc(100% - 20px);
     }
