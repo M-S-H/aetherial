@@ -20,13 +20,13 @@ import { visitSiblingRenderNodes } from '@angular/core/src/view/util';
     ]),
 
     trigger('dialog', [
-      state('in', style({ opacity: 1, transform: 'scale(1, 1)' })),
+      state('in', style({ opacity: 1, transform: 'translateY(0)' })),
       transition(':enter', [
-        style({ opacity: 0, transform: 'scale(1.05, 1.05)' }),
+        style({ opacity: 0, transform: 'translateY(-20px)' }),
         animate('200ms ease-in-out')
       ]),
       transition(':leave', [
-        animate('200ms ease-in-out', style({ opacity: 0, transform: 'scale(1.05, 1.05)' }))
+        animate('200ms ease-in-out', style({ opacity: 0, transform: 'translateY(-20px)' }))
       ])
     ])
   ]
