@@ -1,4 +1,4 @@
-import { Component, Input, ElementRef } from '@angular/core';
+import { Component, Input, ElementRef, AfterViewInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AvCheckboxGroupService } from '../checkbox/checkbox-group.service';
 
@@ -13,7 +13,13 @@ import { AvCheckboxGroupService } from '../checkbox/checkbox-group.service';
 })
 export class AvButtonGroupItemComponent {
   // The item's value
-  @Input() value: string;
+  private _value: string;
+  @Input()
+  get value() { return this._value; }
+  set value(newValue: string) {
+    this._value = newValue;
+    this._selected = this.buttonGroupService.selected.indexOf(this.value) !== -1;
+  }
 
   // Subscription to the group the item belongs to
   private subscription: Subscription;

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AvButtonModule, AvSpinnerModule, AvNotificationsModule, AvCheckboxModule, AvButtonGroupModule, AvSwitchModule } from '../../src';
 
@@ -15,6 +15,7 @@ import { AvAvatarModule } from '../../src/avatar/avatar.module';
 @NgModule({
   imports: [
     FormsModule,
+    ReactiveFormsModule,
     BrowserModule,
     AvButtonModule,
     AvSpinnerModule,

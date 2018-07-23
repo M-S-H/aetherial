@@ -3,6 +3,14 @@
 <av-switch [(state)]="showModal">State</av-switch>
 {{ showModal }}
 
+<form [formGroup]="formStuff">
+  <div *ngIf="showModal">
+    <av-button-group formControlName="checkboxgroupValue" class="repeat-button-group" [multiple]="true">
+      <av-button-group-item *ngFor="let day of ['S', 'M', 'T', 'W', 'T', 'F', 'S']; let i = index" [value]="i">{{ day }}</av-button-group-item>
+    </av-button-group>
+  </div>
+</form>
+
 <!-- <div class="greetings center">
   <av-modal class="small" [visible]="showModal" (close)="showModal = !showModal">
     <div class="modal-header">A modal</div>
