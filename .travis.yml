@@ -19,7 +19,7 @@ deployNpm: &deployNpm
     provider: npm
     email: mshickman91@gmail.com
     api_key:
-      secure: "Ol1WnyOHFKMZAdcH+VJIKSn8lArqTHs2/tI3WQqtCiGCi9bKxo6EISn03YUfpBNVqaKXd4Z7VLAGOE2Gg6xH4w12YHthPjFqMAgmpTfDj+EegjsLkiQT7FyBxt3yPtD72Z0CGzc1gRyiELNSWcY1ruL8c3KIdCCHoIfzxxRD9OWoPJOrJVDRjOBaX6czCuUPSMuqBz7hgglm1mPAurYZ+7HQpuGXffyZZXb0TZj03776ZUX9+NWYZCvAF6rI9upOVaFRuuPu6LzT33I/yWi4aF+gCrtoBMj75P7wyP2FYh1GRcecxQEEUsbcttzJxfOOZ87wCbUgrHYfjhb/FDiI8PS3g3yY1ECs+BbW1YdgHczY+twqqfGSQz9tmbvZq0B/rbHpsmT1gqk/2hvPPNZuubXTpE8EGHvOL0IdhI8wDQbSOLQRe7/sRJnymh1IBH+5FxrT5AGwUk8U45CeysnMXtzLsN1JK/4IhtRqnd1K/c6vZCd9llemXT1ejRDOaM1jvnnhJDSgxdeQBDCZEk9+Fpon0RaLTpymP0BmcdhcWcxdCcZoPUM3ZqgFoEm+XuAFF+REukd3X4Xm3JZyu3n6kcSGAOoJT94Pu5fxt3spkh1yqtVsAM8piZ7HGUMEC1axeJVCfwgFbLrCwWHnjT08IyQ7JwnrwoME4SbZPST+QjA="
+      secure: "d7808845-f528-473a-81d1-da18151438cb"
     on:
       branch: master
     skip_cleanup: true
