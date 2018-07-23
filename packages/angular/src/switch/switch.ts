@@ -1,4 +1,4 @@
-import { Component, Renderer2, ElementRef, Input, forwardRef } from '@angular/core';
+import { Component, Renderer2, ElementRef, Input, forwardRef, Output, EventEmitter } from '@angular/core';
 import { AvBase } from '../shared/base';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
@@ -27,7 +27,10 @@ export class AvSwitchComponent extends AvBase implements ControlValueAccessor {
   set state(newState: boolean) {
     this._state = newState;
     this.propagateChange(this._state);
+    this.stateChange.emit(newState);
   }
+
+  @Output() stateChange = new EventEmitter<boolean>();
 
   constructor(_renderer: Renderer2, _element: ElementRef) {
     super(_renderer, _element);

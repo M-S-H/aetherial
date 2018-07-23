@@ -1,6 +1,9 @@
-<button (click)="showModal = !showModal">fda</button>
+<!-- <button (click)="showModal = !showModal">fda</button> -->
 
-<div class="greetings center">
+<av-switch [(state)]="showModal">State</av-switch>
+{{ showModal }}
+
+<!-- <div class="greetings center">
   <av-modal class="small" [visible]="showModal" (close)="showModal = !showModal">
     <div class="modal-header">A modal</div>
     fdjsalkfjdslfjdsalkjfdlks
@@ -8,4 +11,4 @@
       <button AvButton>Save</button>
     </div>
   </av-modal>
-</div>
+</div> -->
