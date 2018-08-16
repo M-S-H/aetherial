@@ -1,22 +1,27 @@
 <!-- <button (click)="showModal = !showModal">fda</button> -->
 
-<av-switch [(state)]="showModal">State</av-switch>
+<!-- <av-switch [(state)]="showModal">State</av-switch>
 {{ showModal }}
 
 <form [formGroup]="formStuff">
-  <div *ngIf="showModal">
-    <av-button-group formControlName="checkboxgroupValue" class="repeat-button-group" [multiple]="true">
-      <av-button-group-item *ngFor="let day of ['S', 'M', 'T', 'W', 'T', 'F', 'S']; let i = index" [value]="i">{{ day }}</av-button-group-item>
+  <div>
+    <av-button-group formControlName="checkboxgroupValue" class="repeat-button-group">
+      <av-button-group-item [value]="true">True</av-button-group-item>
+      <av-button-group-item [value]="false">False</av-button-group-item>
     </av-button-group>
   </div>
-</form>
 
-<!-- <div class="greetings center">
-  <av-modal class="small" [visible]="showModal" (close)="showModal = !showModal">
+  {{ formStuff.value | json }}
+</form> -->
+
+<button (click)="showModal = !showModal">fdsafds</button>
+
+<div class="greetings center">
+  <av-modal class="large" [visible]="showModal" (close)="showModal = !showModal">
     <div class="modal-header">A modal</div>
     fdjsalkfjdslfjdsalkjfdlks
     <div class="modal-actions">
       <button AvButton>Save</button>
     </div>
   </av-modal>
-</div> -->
+</div>

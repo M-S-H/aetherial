@@ -1,4 +1,4 @@
 @import '~@aetherial/aetherial-styles/aetherial';
 @import '~@aetherial/aetherial-styles/theme/unm-theme';
 
-@include aetherial();
+@include aetherial((large-modal-width: 1800px));

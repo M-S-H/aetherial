@@ -20,7 +20,7 @@ export class AppComponent {
 
   constructor(private notificationsService: AvNotificationsService, private fb: FormBuilder) {
     this.formStuff = fb.group({
-      checkboxgroupValue: [[]],
+      checkboxgroupValue: [false],
     });
   }
 }

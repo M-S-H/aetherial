@@ -44,6 +44,10 @@
     box-shadow: map-get($theme, modal-shadow);
     transform: translate(map-get($theme, modal-translate-x), map-get($theme, modal-translate-y));
 
+    @media (max-width: map-get($theme, medium-modal-width) + 20px) {
+      max-width: calc(100% - 20px);
+    }
+
     // &::before {
     //   content: ' ';
     //   width: 100%;
@@ -114,12 +118,20 @@
   // Small Variant
   .av-modal.small .modal-dialog {
     max-width: map-get($theme, small-modal-width);
+    
+    @media (max-width: map-get($theme, small-modal-width) + 20px) {
+      max-width: calc(100% - 20px);
+    }
   }
 
 
   // Large Variant
   .av-modal.large .modal-dialog {
     max-width: map-get($theme, large-modal-width);
+
+    @media (max-width: map-get($theme, large-modal-width) + 20px) {
+      max-width: calc(100% - 20px);
+    }
   }
 
 
