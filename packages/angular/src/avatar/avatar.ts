@@ -12,6 +12,7 @@ export class AvAvatarComponent {
   // Image
   @Input() image = '';
 
+  // Will force the avatar to the passed in color
   @Input() forceColor = null;
 
   // The users name
