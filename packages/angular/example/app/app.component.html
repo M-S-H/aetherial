@@ -14,7 +14,22 @@
   {{ formStuff.value | json }}
 </form> -->
 
-<button (click)="showModal = !showModal">fdsafds</button>
+<div *ngFor="let name of names" style="width: 100px; height: 100px; color: white; display: inline-block;" [style.background]="color(name)">{{ name }}</div>
+
+<!-- <form [formGroup]="formStuff">
+<av-select *ngIf="selectValues" [items]="selectValues" displayKey="name" valueKey="id" formControlName="selectedValue" searchable="true"></av-select>
+{{ this.formStuff.value | json }}
+</form> -->
+
+<!-- <button (click)="showModal = !showModal">fdsafds</button>
+
+<form [formGroup]="formStuff">
+  <av-form-field>
+    <input type="text" formControlName="otherthing" avInput />
+  </av-form-field>
+</form>
+
+{{ formStuff.get('otherthing').value }}
 
 <div class="greetings center">
   <av-modal class="large" [visible]="showModal" (close)="showModal = !showModal">
@@ -24,4 +39,4 @@
       <button AvButton>Save</button>
     </div>
   </av-modal>
-</div>
+</div> -->

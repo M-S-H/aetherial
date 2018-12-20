@@ -6,7 +6,7 @@
   "license": "MIT",
   "main": "src/index.ts",
   "scripts": {
-    "start": "ng serve --aot --host 0.0.0.0",
+    "start": "ng serve --aot --host 0.0.0.0 --port 4300",
     "build": "ng-packagr -p ng-package.json",
     "test": "npm run lint && ng test --watch false",
     "test-watch": "ng test",
@@ -24,7 +24,11 @@
   ],
   "dependencies": {
     "@aetherial/aetherial-styles": "^0.0.31",
-    "web-animations-js": "^2.3.1"
+    "web-animations-js": "^2.3.1",
+    "@types/chroma-js": "^1.4.0",
+    "@types/md5": "^2.1.33",
+    "chroma-js": "^2.0.2",
+    "md5": "^2.2.1"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.6.1",
