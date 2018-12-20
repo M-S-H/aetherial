@@ -1,9 +1,9 @@
 <div 
   class="avatar-container"
-  [ngStyle]="{ width: size + 'px', height: size + 'px', 'background-color': color }"
+  [ngStyle]="{ width: size + 'px', height: size + 'px', 'background-color': forceColor ? forceColor : color }"
 >
   <img 
-    *ngIf="image !== ''"
+    *ngIf="image !== '' && !forceColor"
     [src]="image"
     [height]="size"
   />

@@ -12,6 +12,8 @@ export class AvAvatarComponent {
   // Image
   @Input() image = '';
 
+  @Input() forceColor = null;
+
   // The users name
   private _name = '';
   @Input()
