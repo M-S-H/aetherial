@@ -18,8 +18,8 @@ deployNpm: &deployNpm
   deploy:
     provider: npm
     email: mshickman91@gmail.com
-    api_key:
-      secure: "d7808845-f528-473a-81d1-da18151438cb"
+    api_key: $NPM_TOKEN
+      # secure: "d7808845-f528-473a-81d1-da18151438cb"
     on:
       branch: master
     skip_cleanup: true
