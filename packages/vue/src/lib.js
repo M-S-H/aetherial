@@ -6,8 +6,8 @@ import ripple from './directives/ripple'
 import './styles/lib.scss'
 
 export {
+  ripple,
   button,
   modal,
-  ripple,
   select
 }
