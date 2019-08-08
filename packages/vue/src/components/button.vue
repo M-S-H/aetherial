@@ -1,6 +1,6 @@
 <template>
   <button 
-    class="av-button" 
+    class="av-button"
     v-ripple
     @click="$emit('click')"
     :class="color"
