@@ -5,10 +5,10 @@ import ripple from './directives/ripple'
 import buttonGroup from './components/button-group'
 import buttonGroupItem from './components/button-group-item'
 import checkbox from './components/checkbox'
-import checkboxGroup from './components/checkboxGroup'
+import checkboxGroup from './components/checkbox-group'
 import avswitch from './components/switch'
-import radioButton from './components/radioButton'
-import radioButtonGroup from './components/radioButtonGroup'
+import radioButton from './components/radio-button'
+import radioButtonGroup from './components/radio-button-group'
 
 import './styles/lib.scss'
 

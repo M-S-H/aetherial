@@ -1,6 +1,4 @@
 class RippleMaker {
-  _container;
-
   constructor (container) {
     this._container = container
   }
