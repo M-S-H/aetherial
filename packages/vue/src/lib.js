@@ -26,16 +26,18 @@ import './styles/lib.scss'
 //   avswitch
 // }
 
-export default function installAv (vue) {
-  vue.directive('ripple', ripple)
-  vue.component('av-button', button)
-  vue.component('av-select', select)
-  vue.component('av-modal', modal)
-  vue.component('av-button-group', buttonGroup)
-  vue.component('av-button-group-item', buttonGroupItem)
-  vue.component('av-switch', avswitch)
-  vue.component('av-checkbox', checkbox)
-  vue.component('av-checkbox-group', checkboxGroup)
-  vue.component('av-radio-group', radioButtonGroup)
-  vue.component('av-radio-button', radioButton)
+export default {
+  install (vue, options) {
+    vue.directive('ripple', ripple)
+    vue.component('av-button', button)
+    vue.component('av-select', select)
+    vue.component('av-modal', modal)
+    vue.component('av-button-group', buttonGroup)
+    vue.component('av-button-group-item', buttonGroupItem)
+    vue.component('av-switch', avswitch)
+    vue.component('av-checkbox', checkbox)
+    vue.component('av-checkbox-group', checkboxGroup)
+    vue.component('av-radio-group', radioButtonGroup)
+    vue.component('av-radio-button', radioButton)
+  }
 }

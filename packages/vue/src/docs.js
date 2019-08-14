@@ -14,13 +14,13 @@ import router from './router'
 // import checkboxGroup from './components/checkbox-group'
 // import radioButton from './components/radio-button'
 // import radioButtonGroup from './components/radio-button-group'
-import installAv from './lib'
+import AvComps from './lib'
 
 import './styles/app.scss'
 
 Vue.config.productionTip = false
 
-installAv(Vue)
+Vue.use(AvComps)
 
 // Vue.directive('ripple', rippleDirective)
 // Vue.component('av-button', button)

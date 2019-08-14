@@ -10,7 +10,7 @@
 
     <input class="av-input" />
 
-    <av-button-group v-model="buttonstuff" multiple="true">
+    <av-button-group v-model="buttonstuff">
       <av-button-group-item color="primary" value="hi">Hi</av-button-group-item>
       <av-button-group-item value="yo">Yo</av-button-group-item>
       <av-button-group-item value="sup">Sup</av-button-group-item>
@@ -59,7 +59,7 @@ export default {
       options: [{id: 1, name: 'One'}, {id: 2, name: 'Two'}],
       thing: { id: 2, name: 'Two' },
       showModal: false,
-      buttonstuff: [],
+      buttonstuff: 'yo',
       sv: false,
       checks: [],
       checkOptions: ['One', 'Two', 'Three'],

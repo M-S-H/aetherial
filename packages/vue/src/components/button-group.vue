@@ -32,6 +32,8 @@ export default {
         child.$on('item-unselected', (value) => this.itemUnselected(value))
       }
     }
+
+    this.updateItems()
   },
 
   methods: {
