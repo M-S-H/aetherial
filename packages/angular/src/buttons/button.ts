@@ -8,7 +8,8 @@ import {
   ContentChildren,
   OnInit,
   AfterViewInit,
-  ViewEncapsulation
+  ViewEncapsulation,
+  HostListener
 } from '@angular/core';
 import { trigger, transition, style, animate, state } from '@angular/animations';
 import { AvBase } from '../shared/base';
@@ -67,6 +68,7 @@ export class AvButtonComponent extends AvBase implements AfterViewInit {
       if (this._originalColor) {
         this.color = this._originalColor;
         this._originalColor = null;
+        this.disabled = false;
       }
       this._buttonState = newState;
     } else if (newState === 'loading') {
@@ -87,6 +89,12 @@ export class AvButtonComponent extends AvBase implements AfterViewInit {
     }
 
     this.isAlternateState = this._buttonState !== 'button';
+
+    if (this.isAlternateState) {
+      this._renderer.setAttribute(this._element.nativeElement, 'disabled', 'true');
+    } else if (!this.disabled) {
+      this._renderer.removeAttribute(this._element.nativeElement, 'disabled');
+    }
   }
 
   // Class binding for alternate state

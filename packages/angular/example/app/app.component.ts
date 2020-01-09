@@ -18,9 +18,29 @@ export class AppComponent {
 
   formStuff = null;
 
+  buttonState = 'loading';
+
+  isDisabled = true;
+
   constructor(private notificationsService: AvNotificationsService, private fb: FormBuilder) {
     this.formStuff = fb.group({
       checkboxgroupValue: [false],
     });
+
+    setTimeout(() => {
+      this.isDisabled = false;
+    }, 10000);
+
+    setTimeout(() => {
+      this.buttonState = 'loading';
+    }, 5000);
+
+    setTimeout(() => {
+      this.buttonState = 'button';
+    }, 8000);
+  }
+
+  dostuff() {
+    console.log('hello');
   }
 }
