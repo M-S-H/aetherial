@@ -24,6 +24,14 @@ export class AvAvatarComponent {
     this.constructInitials();
   }
 
+  // Avatar initials based on name
+  private _initials = '';
+  get initials() { return this._initials; }
+  set initials(i: string) {
+    this._initials = i;
+    this.color = avatarColors[i.toUpperCase().charCodeAt(0) - 65];
+  }
+
   // Hex color for background
   color: string;
 
@@ -32,14 +40,6 @@ export class AvAvatarComponent {
 
   sizeInt() {
     return Number(this.size);
-  }
-
-  // Avatar initials based on name
-  private _initials = '';
-  get initials() { return this._initials; }
-  set initials(i: string) {
-    this._initials = i;
-    this.color = avatarColors[i.toUpperCase().charCodeAt(0) - 65];
   }
 
   constructInitials() {
