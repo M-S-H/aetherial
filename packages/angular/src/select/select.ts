@@ -49,7 +49,7 @@ export class AvSelectComponent extends AvBase implements ControlValueAccessor, A
   }
 
   // Items filtered by search term
-  private filteredItems: Array<any>;
+  filteredItems: Array<any> = [];
 
   // Option to make passed in items searchable
   @Input() searchable = false;

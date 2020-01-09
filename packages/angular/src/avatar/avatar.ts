@@ -30,6 +30,10 @@ export class AvAvatarComponent {
   // The avatar's size (diameter)
   @Input() size = '40';
 
+  sizeInt() {
+    return Number(this.size);
+  }
+
   // Avatar initials based on name
   private _initials = '';
   get initials() { return this._initials; }
