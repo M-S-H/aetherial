@@ -39,7 +39,7 @@ export class AvInputDirective {
 })
 export class AvFormFieldComponent implements AfterViewInit {
   // The form-field's actual form control element
-  @ContentChild(AvInputDirective) input: AvInputDirective;
+  @ContentChild(AvInputDirective, {static: true}) input: AvInputDirective;
 
   // Error class binding
   @HostBinding('class.invalid') inputInvalid = false;

@@ -58,10 +58,10 @@ export class AvSelectComponent extends AvBase implements ControlValueAccessor, A
   @Input() placeholder = 'Select One';
 
   // Reference to the select options template
-  @ViewChild('options') options: TemplateRef<any>;
-  @ViewChild('search') searchField;
+  @ViewChild('options', { static: true }) options: TemplateRef<any>;
+  @ViewChild('search', { static: false }) searchField;
 
-  @ViewChild('display') display: TemplateRef<any>;
+  @ViewChild('display', { static: true }) display: TemplateRef<any>;
 
   // If items contains objects, display attribute with this key
   @Input() displayKey = 'display';

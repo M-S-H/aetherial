@@ -1,6 +1,5 @@
 import { Component, Input, Output, EventEmitter, HostBinding, ViewEncapsulation } from '@angular/core';
 import { trigger, transition, style, animate, state } from '@angular/animations';
-import { visitSiblingRenderNodes } from '@angular/core/src/view/util';
 
 @Component({
   selector: 'av-modal',

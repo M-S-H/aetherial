@@ -36,8 +36,8 @@ import { trigger, transition, style, animate, state } from '@angular/animations'
 })
 export class SvSelectOverlayComponent {
   // Reference to the ng-container where the select options will be injected
-  @ViewChild('container', { read: ViewContainerRef }) container;
-  @ViewChild('display', { read: ViewContainerRef }) displayContainer;
+  @ViewChild('container', { read: ViewContainerRef, static: true }) container;
+  @ViewChild('display', { read: ViewContainerRef, static: true }) displayContainer;
 
   @HostBinding('@slideDown') true;
 
