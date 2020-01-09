@@ -7,7 +7,7 @@ import { AvCheckboxGroupService } from '../checkbox/checkbox-group.service';
   templateUrl: 'button-group-item.html',
   host: {
     'class': 'av-button-group-item',
-    '[class.active]': '_selected',
+    '[class.active]': 'selected',
     '(click)': 'toggle()'
   }
 })
@@ -26,6 +26,7 @@ export class AvButtonGroupItemComponent {
 
   // Whether the button is selected
   private _selected = false;
+  get selected() { return this._selected; }
 
   get element() { return this._element; }
 
