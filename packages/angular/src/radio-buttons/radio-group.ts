@@ -7,7 +7,7 @@ import { ColorPalette } from '../shared/color';
 @Component({
   selector: 'av-radio-group',
   template: `
-    <ng-content select="av-radio-button"></ng-content>
+    <ng-content></ng-content>
   `,
   host: { 'class': 'av-radio-group' },
   encapsulation: ViewEncapsulation.None,
