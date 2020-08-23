@@ -10,7 +10,7 @@ import { avatarColors } from './avatar-colors';
 
 export class AvAvatarComponent {
   // Image
-  @Input() image = '';
+  @Input() image = null;
 
   // Will force the avatar to the passed in color
   @Input() forceColor = null;
