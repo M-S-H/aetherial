@@ -9,7 +9,7 @@ import { avatarColors } from './avatar-colors';
 })
 
 export class AvAvatarComponent {
-  // Image
+  /** Image */
   @Input() image = null;
 
   // Will force the avatar to the passed in color
