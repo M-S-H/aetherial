@@ -3,7 +3,7 @@
   "version": "1.0.2",
   "scripts": {
     "serve": "vue-cli-service serve src/docs.ts",
-    "build": "vue-cli-service build",
+    "build": "vue-cli-service build --target lib --name avComponents",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint"
   },
@@ -48,5 +48,11 @@
       "vue-cli-service lint",
       "git add"
     ]
-  }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist/*"
+  ]
 }
