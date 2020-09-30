@@ -3,7 +3,7 @@
   "version": "1.0.2",
   "scripts": {
     "serve": "vue-cli-service serve src/docs.ts",
-    "build": "vue-cli-service build --target lib --name avComponents src/main.ts",
+    "build": "vue-cli-service build --target lib --name avComponents src/main.ts; cp package.json ./dist/package.json",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint"
   },
