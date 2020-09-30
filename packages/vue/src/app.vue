@@ -20,7 +20,7 @@ export default defineComponent({
 
   methods: {
     dostuff () {
-      // alert('I did stuff')
+      console.log('nothings')
     }
   }
 })
