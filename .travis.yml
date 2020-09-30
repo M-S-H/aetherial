@@ -21,7 +21,9 @@ deployNpm: &deployNpm
     api_key: $NPM_TOKEN
       # secure: "d7808845-f528-473a-81d1-da18151438cb"
     on:
-      branch: master
+      branch:
+        - master
+        - vue3
     skip_cleanup: true
 
 deployStuff: &deployStuff

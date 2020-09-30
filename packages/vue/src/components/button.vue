@@ -1,32 +1,37 @@
 <template>
-  <button 
+  <button
     class="av-button"
-    v-ripple
-    @click="$emit('click')"
-    :class="color"
+    :disabled="disabled"
+    v-av-ripple
+    @click="propagateClick"
   >
     <!-- Main Button Text -->
     <span class="av-button-content">
       <slot></slot>
     </span>
-
-    <!-- <div v-ripple class="av-ripple"></div> -->
   </button>
 </template>
 
-<script>
-import colorMixin from '../mixins/color-mixin'
+<script lang="ts">
+import { defineComponent } from 'vue'
 
-export default {
+export default defineComponent({
   props: {
-    'disabled': {
+    disabled: {
+      type: Boolean,
       default: false
     },
-    'state': {
+    state: {
+      type: String,
       default: 'button'
     }
   },
 
-  mixins: [ colorMixin ]
-}
+  methods: {
+    propagateClick ($event: MouseEvent) {
+      $event.stopImmediatePropagation()
+      this.$emit('click')
+    }
+  }
+})
 </script>

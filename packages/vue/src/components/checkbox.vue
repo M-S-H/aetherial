@@ -1,7 +1,7 @@
 <template>
-  <div class="av-checkbox" @click="toggle" :class="color">
+  <div class="av-checkbox" @click="toggle">
     <!-- The checkbox element -->
-    <div 
+    <div
       class="av-checkbox-element"
       :class="{active: checked}"
     >
@@ -15,7 +15,6 @@
 
     <!-- Checkbox label -->
     <label class="av-checkbox-label">
-      {{ checked }}
       <slot></slot>
     </label>
 
@@ -28,19 +27,19 @@
   </div>
 </template>
 
-<script>
-import colorMixin from '../mixins/color-mixin'
+<script lang="ts">
+import { defineComponent } from 'vue'
 
-export default {
+export default defineComponent({
   name: 'AvCheckbox',
 
-  model: {
-    prop: 'model'
-  },
-
   props: {
-    'value': { default: null },
-    'model': { default: false }
+    value: {
+      default: null
+    },
+    modelValue: {
+      default: false
+    }
   },
 
   data () {
@@ -51,18 +50,18 @@ export default {
   },
 
   mounted () {
-    if (this.$parent.$options.name === 'AvCheckboxGroup') {
+    if (this.$parent?.$options.name === 'AvCheckboxGroup') {
       this.inGroup = true
-      this.$parent.registerCheckbox(this)
+      // this.$parent.registerCheckbox(this)
     }
   },
 
-  beforeDestroy () {
+  beforeUnmount () {
     this.$emit('item-unselected', this.value)
   },
 
   watch: {
-    model (newVal, oldVal) {
+    modelValue (newVal: boolean) {
       this.checked = newVal
 
       if (this.inGroup) {
@@ -73,26 +72,24 @@ export default {
     }
   },
 
-  mixins: [colorMixin],
-
   methods: {
     toggle () {
       if (this.inGroup) {
         this.checked
-        ? this.$emit('item-unselected', this.value)
-        : this.$emit('item-selected', this.value)
+          ? this.$emit('item-unselected', this.value)
+          : this.$emit('item-selected', this.value)
       } else {
-        this.$emit('input', !this.checked)
+        this.$emit('update:modelValue', !this.checked)
       }
     },
 
-    setState (state) {
+    setState (state: boolean) {
       this.checked = state
 
       if (this.inGroup) {
-        this.$emit('input', this.checked)
+        this.$emit('update:modelValue', this.checked)
       }
     }
   }
-}
+})
 </script>
