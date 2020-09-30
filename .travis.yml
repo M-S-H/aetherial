@@ -3,7 +3,7 @@ dist: trusty
 
 language: node_js
 node_js:
-  - 10.9
+  - 12
 
 before_script:
   - export DISPLAY=:99.0
