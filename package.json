@@ -1,6 +1,7 @@
 {
 	"scripts": {
-		"publish": "lerna publish --skip-npm && git push origin master"
+		"publish": "lerna publish --skip-npm && git push origin master",
+		"publishNext": "lerna publish --skip-npm && git push origin vue3"
 	},
 	"devDependencies": {
 		"lerna": "^2.9.0"
