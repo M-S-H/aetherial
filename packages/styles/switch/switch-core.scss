@@ -50,6 +50,10 @@
         background-color: lighten(map-get($theme, medium-gray-color), 5%);
       }
     }
+
+    input {
+      display: none;
+    }
   }
 
   // Theming

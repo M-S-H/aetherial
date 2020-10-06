@@ -28,67 +28,65 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, inject, onMounted, ref, watch } from 'vue'
 
 export default defineComponent({
-  name: 'AvCheckbox',
-
   props: {
     value: {
       default: null
     },
+
     modelValue: {
+      type: Boolean,
       default: false
     }
   },
 
-  data () {
+  setup (props, context) {
+    let isInGroup = false
+    const checked = ref(false)
+    const list = inject('checkboxValues') as Array<any>
+
+    onMounted(() => {
+      if (list !== undefined) {
+        isInGroup = true
+
+        watch(() => list, l => {
+          const valueContained = l.findIndex(v => v === props.value) !== -1
+          if (valueContained !== checked.value) {
+            checked.value = !checked.value
+            context.emit('update:modelValue', checked.value)
+          }
+        }, { deep: true })
+      }
+    })
+
+    watch(() => props.modelValue, (val: boolean) => {
+      checked.value = val
+    })
+
+    watch(checked, (val) => {
+      if (!isInGroup) {
+        return
+      }
+
+      const ind = list.findIndex(v => v === props.value)
+      if (val && ind === -1) {
+        list.push(props.value)
+      } else if (!val && ind !== -1) {
+        list.splice(ind, 1)
+      }
+    })
+
+    const toggle = () => {
+      checked.value = !checked.value
+      context.emit('update:modelValue', checked.value)
+    }
+
     return {
-      checked: false,
-      inGroup: false
-    }
-  },
-
-  mounted () {
-    if (this.$parent?.$options.name === 'AvCheckboxGroup') {
-      this.inGroup = true
-      // this.$parent.registerCheckbox(this)
-    }
-  },
-
-  beforeUnmount () {
-    this.$emit('item-unselected', this.value)
-  },
-
-  watch: {
-    modelValue (newVal: boolean) {
-      this.checked = newVal
-
-      if (this.inGroup) {
-        this.checked
-          ? this.$emit('item-selected', this.value)
-          : this.$emit('item-unselected', this.value)
-      }
-    }
-  },
-
-  methods: {
-    toggle () {
-      if (this.inGroup) {
-        this.checked
-          ? this.$emit('item-unselected', this.value)
-          : this.$emit('item-selected', this.value)
-      } else {
-        this.$emit('update:modelValue', !this.checked)
-      }
-    },
-
-    setState (state: boolean) {
-      this.checked = state
-
-      if (this.inGroup) {
-        this.$emit('update:modelValue', this.checked)
-      }
+      toggle,
+      list,
+      checked
     }
   }
 })

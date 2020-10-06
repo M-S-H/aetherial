@@ -40,7 +40,7 @@
     &:focus {
       color: #000;
       border-color: #000;
-      outline: none;
+      outline: map-get($theme, input-focus-outline);
       box-shadow: map-get($theme, input-focus-box-shadow);
     }
 
@@ -48,6 +48,7 @@
       color: map-get($theme, error-color);
       caret-color: map-get($theme, error-color);
       border-color: map-get($theme, error-color);
+      outline-color: map-get($theme, error-color);
     }
   }
 
