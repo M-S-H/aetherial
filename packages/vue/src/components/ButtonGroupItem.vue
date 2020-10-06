@@ -34,6 +34,7 @@ export default defineComponent({
 
     onMounted(() => {
       if (selectedValue) {
+        console.log('hi')
         watch(() => selectedValue.value, v => {
           const isCurrentValue = v === props.value
           if (isCurrentValue !== isSelected.value) {
