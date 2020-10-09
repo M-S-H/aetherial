@@ -1,6 +1,6 @@
 <template>
   <!-- Radio Button Element -->
-  <div class="av-radio-button" @click="select">
+  <div class="av-radio-button" @click="select" :class="color">
     <div
       class="av-radio-button-element"
       :class="{selected: isSelected}"
@@ -18,6 +18,7 @@
 
 <script lang="ts">
 import { defineComponent, inject, onMounted, Ref, ref, watch } from 'vue'
+import color from '../mixins/color.vue'
 
 export default defineComponent({
   name: 'AvRadioButton',
@@ -31,6 +32,8 @@ export default defineComponent({
       default: null
     }
   },
+
+  mixins: [color],
 
   setup (props, context) {
     let isInGroup = false

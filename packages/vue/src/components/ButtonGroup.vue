@@ -6,6 +6,7 @@
 
 <script lang="ts">
 import { defineComponent, provide, ref, watch } from 'vue'
+import color from '../mixins/color.vue'
 
 export default defineComponent({
   name: 'AvButtonGroup',
@@ -16,6 +17,8 @@ export default defineComponent({
       default: false
     }
   },
+
+  mixins: [color],
 
   setup (props, context) {
     const watchedValue = ref(props.modelValue)

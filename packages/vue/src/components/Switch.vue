@@ -2,6 +2,7 @@
   <div
     class="av-switch"
     @click="toggle"
+    :class="color"
   >
     <!-- Switch Element -->
     <div class="av-switch-element" :class="{ on: active }">
@@ -23,6 +24,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import color from '../mixins/color.vue'
 
 export default defineComponent({
   name: 'AvSwitch',
@@ -33,6 +35,8 @@ export default defineComponent({
       default: false
     }
   },
+
+  mixins: [color],
 
   data () {
     return {

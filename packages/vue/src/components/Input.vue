@@ -1,5 +1,5 @@
 <template>
-  <div class="av-input-wraper">
+  <div class="av-input-wraper" :class="color">
     <slot name="icon"></slot>
     <input class="av-input" :type='type' v-model="modelValue" />
   </div>
@@ -7,6 +7,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import color from '../mixins/color.vue'
 
 export default defineComponent({
   name: 'AvInput',
@@ -21,6 +22,8 @@ export default defineComponent({
   modelValue: {
     type: String,
     default: ''
-  }
+  },
+
+  mixins: [color]
 })
 </script>

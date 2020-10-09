@@ -1,5 +1,9 @@
 <template>
-  <div class="av-checkbox" @click="toggle">
+  <div
+    class="av-checkbox"
+    @click="toggle"
+    :class="color"
+  >
     <!-- The checkbox element -->
     <div
       class="av-checkbox-element"
@@ -29,6 +33,7 @@
 
 <script lang="ts">
 import { defineComponent, inject, onMounted, ref, watch } from 'vue'
+import color from '../mixins/color.vue'
 
 export default defineComponent({
   props: {
@@ -41,6 +46,8 @@ export default defineComponent({
       default: false
     }
   },
+
+  mixins: [color],
 
   setup (props, context) {
     let isInGroup = false

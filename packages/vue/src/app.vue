@@ -3,16 +3,16 @@
     <h1>Stuff</h1>
     <av-button @click="showModal = true" class="error">Hi</av-button>
 
-    <av-checkbox v-model="isAccepted" class="primary" value="something">Label Godes Here</av-checkbox> {{ isAccepted }}
+    <av-checkbox v-model="isAccepted" value="something">Label Godes Here</av-checkbox> {{ isAccepted }}
 
     <av-checkbox-group v-model="lists">
-      <av-checkbox v-model="isAccepted" class="primary" value="something">Label Godes Here</av-checkbox> {{ isAccepted }}
-      <av-checkbox class="primary" value="one">One</av-checkbox>
-      <av-checkbox class="primary" value="two">Two</av-checkbox>
-      <av-checkbox class="primary" value="three">Three</av-checkbox>
+      <av-checkbox v-model="isAccepted" value="something">Label Godes Here</av-checkbox> {{ isAccepted }}
+      <av-checkbox value="one">One</av-checkbox>
+      <av-checkbox value="two">Two</av-checkbox>
+      <av-checkbox value="three">Three</av-checkbox>
     </av-checkbox-group>
 
-    <av-button-group class="primary" v-model="selected">
+    <av-button-group v-model="selected">
       <av-button-group-item value="one">one</av-button-group-item>
       <av-button-group-item value="two">two</av-button-group-item>
       <av-button-group-item value="three">three</av-button-group-item>

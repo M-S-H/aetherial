@@ -4,6 +4,7 @@
     :disabled="disabled"
     v-av-ripple
     @click="propagateClick"
+    :class="color"
   >
     <!-- Main Button Text -->
     <span class="av-button-content">
@@ -14,6 +15,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import color from '../mixins/color.vue'
 
 export default defineComponent({
   props: {
@@ -26,6 +28,10 @@ export default defineComponent({
       default: 'button'
     }
   },
+
+  mixins: [
+    color
+  ],
 
   methods: {
     propagateClick ($event: MouseEvent) {
