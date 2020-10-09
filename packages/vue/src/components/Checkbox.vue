@@ -57,7 +57,7 @@ export default defineComponent({
             checked.value = !checked.value
             context.emit('update:modelValue', checked.value)
           }
-        }, { deep: true })
+        }, { deep: true, immediate: true })
       }
     })
 

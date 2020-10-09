@@ -7,6 +7,8 @@ import RadioButtonGroup from '@/components/RadioGroup.vue'
 import Input from '@/components/Input.vue'
 import Modal from '@/components/Modal.vue'
 import Switch from '@/components/Switch.vue'
+import ButtonGroup from '@/components/ButtonGroup.vue'
+import ButtonGroupItem from '@/components/ButtonGroupItem.vue'
 
 export default {
   install (vue: any, options: any) {
@@ -19,5 +21,7 @@ export default {
     vue.component('av-input', Input)
     vue.component('av-modal', Modal)
     vue.component('av-switch', Switch)
+    vue.component('av-button-group', ButtonGroup)
+    vue.component('av-button-group-item', ButtonGroupItem)
   }
 }

@@ -12,7 +12,11 @@
       <av-checkbox class="primary" value="three">Three</av-checkbox>
     </av-checkbox-group>
 
-    {{ lists }}
+    <av-button-group class="primary" v-model="selected">
+      <av-button-group-item value="one">one</av-button-group-item>
+      <av-button-group-item value="two">two</av-button-group-item>
+      <av-button-group-item value="three">three</av-button-group-item>
+    </av-button-group>
 
     <av-radio-group v-model="selected">
       <av-radio-button v-for="option of options" :key="option" :value="option" class="primary">{{ option }}</av-radio-button>
@@ -49,7 +53,7 @@ export default defineComponent({
   data () {
     return {
       isAccepted: false,
-      lists: [],
+      lists: ['one'],
       options: ['one', 'two', 'three'],
       selected: 'one',
       text: '',

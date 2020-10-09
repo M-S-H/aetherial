@@ -2,7 +2,7 @@
   "name": "@aetherial/aetherial-angular",
   "description": "Angular UI component library",
   "author": "Michael Hickman <mshickman91@gmail.com>",
-  "version": "1.0.1-0",
+  "version": "1.0.2-0",
   "license": "MIT",
   "main": "src/index.ts",
   "scripts": {
@@ -23,7 +23,7 @@
     "aetherial"
   ],
   "dependencies": {
-    "@aetherial/aetherial-styles": "^1.0.1-0",
+    "@aetherial/aetherial-styles": "^1.0.2-0",
     "web-animations-js": "^2.3.2"
   },
   "devDependencies": {

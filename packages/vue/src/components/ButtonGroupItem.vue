@@ -2,7 +2,7 @@
   <div
     class="av-button-group-item"
     :class="{ active: isSelected }"
-    @click="toggle"
+    @click="select"
   >
     <slot></slot>
 
@@ -34,7 +34,6 @@ export default defineComponent({
 
     onMounted(() => {
       if (selectedValue) {
-        console.log('hi')
         watch(() => selectedValue.value, v => {
           const isCurrentValue = v === props.value
           if (isCurrentValue !== isSelected.value) {
