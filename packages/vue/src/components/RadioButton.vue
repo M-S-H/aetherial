@@ -33,9 +33,9 @@ export default defineComponent({
     }
   },
 
-  mixins: [color],
-
   emits: ['update:modelValue'],
+
+  mixins: [color],
 
   setup (props, context) {
     let isInGroup = false
