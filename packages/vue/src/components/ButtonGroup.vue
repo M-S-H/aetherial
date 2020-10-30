@@ -20,6 +20,8 @@ export default defineComponent({
 
   mixins: [color],
 
+  emits: ['update:modelValue'],
+
   setup (props, context) {
     const watchedValue = ref(props.modelValue)
     provide('avButtonGroupValue', watchedValue)

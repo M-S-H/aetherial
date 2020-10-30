@@ -1,14 +1,14 @@
 {
   "name": "@aetherial/aetherial-vue",
-  "version": "1.0.8",
+  "version": "1.0.10",
   "scripts": {
     "serve": "vue-cli-service serve src/docs.ts",
-    "build": "vue-cli-service build --target lib --name avComponents src/main.ts",
+    "build": "vue-cli-service build --target lib --name avComponents src/main.ts; cp package.json dist/package.json",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "@aetherial/aetherial-styles": "^1.0.2-0",
+    "@aetherial/aetherial-styles": "^1.0.2",
     "core-js": "^3.6.5",
     "vue": "^3.0.0-0",
     "vue-router": "^4.0.0-0"
@@ -53,6 +53,6 @@
     "access": "public"
   },
   "files": [
-    "dist/*"
+    "./*"
   ]
 }

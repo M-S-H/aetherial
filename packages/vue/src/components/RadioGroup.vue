@@ -1,12 +1,11 @@
 <template>
   <div class="av-radio-group">
-    {{ whatever }}
     <slot></slot>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, provide, reactive, ref, watch } from 'vue'
+import { defineComponent, provide, ref, watch } from 'vue'
 
 export default defineComponent({
   name: 'AvRadioGroup',
@@ -17,15 +16,17 @@ export default defineComponent({
     }
   },
 
-  setup (props, context) {
-    const whatever = ref(props.modelValue)
-    provide('avRadioGroupValue', whatever)
+  emits: ['update:modelValue'],
 
-    watch(() => props.modelValue, (v) => { whatever.value = v }, { immediate: true })
-    watch(whatever, (v) => context.emit('update:modelValue', v))
+  setup (props, context) {
+    const currentValue = ref(props.modelValue)
+    provide('avRadioGroupValue', currentValue)
+
+    watch(() => props.modelValue, (v) => { currentValue.value = v }, { immediate: true })
+    watch(currentValue, (v) => context.emit('update:modelValue', v))
 
     return {
-      whatever
+      currentValue
     }
   }
 })

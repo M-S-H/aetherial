@@ -64,6 +64,8 @@ export default {
     }
   },
 
+  emits: ['close'],
+
   methods: {
     closeModal () {
       this.$emit('close')
@@ -76,7 +78,7 @@ export default {
 .fade-enter-active,
 .fade-leave-active {
   will-change: opacity;
-  transition-duration: 0.3s;
+  transition-duration: 0.2s;
   transition-property: opacity;
   transition-timing-function: cubic-bezier(0.55, 0, 0.1, 1);
   // overflow: hidden;
@@ -94,7 +96,7 @@ export default {
 .slide-fade-enter-active,
 .slide-fade-leave-active {
   will-change: transform;
-  transition-duration: 0.3s;
+  transition-duration: 0.2s;
   transition-property: opacity, transform;
   transition-timing-function: cubic-bezier(0.55, 0, 0.1, 1);
   // overflow: hidden;

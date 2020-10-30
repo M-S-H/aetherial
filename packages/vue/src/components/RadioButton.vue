@@ -35,6 +35,8 @@ export default defineComponent({
 
   mixins: [color],
 
+  emits: ['update:modelValue'],
+
   setup (props, context) {
     let isInGroup = false
     const isSelected = ref(false)

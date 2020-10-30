@@ -49,6 +49,8 @@ export default defineComponent({
 
   mixins: [color],
 
+  emits: ['update:modelValue'],
+
   setup (props, context) {
     let isInGroup = false
     const checked = ref(false)
@@ -70,7 +72,7 @@ export default defineComponent({
 
     watch(() => props.modelValue, (val: boolean) => {
       checked.value = val
-    })
+    }, { immediate: true })
 
     watch(checked, (val) => {
       if (!isInGroup) {
@@ -83,7 +85,7 @@ export default defineComponent({
       } else if (!val && ind !== -1) {
         list.splice(ind, 1)
       }
-    })
+    }, { immediate: true })
 
     const toggle = () => {
       checked.value = !checked.value

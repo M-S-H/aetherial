@@ -50,6 +50,8 @@ export default defineComponent({
     }
   },
 
+  emits: ['update:modelValue'],
+
   methods: {
     toggle () {
       this.active = !this.active

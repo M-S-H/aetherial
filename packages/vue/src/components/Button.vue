@@ -29,6 +29,8 @@ export default defineComponent({
     }
   },
 
+  emits: ['click'],
+
   mixins: [
     color
   ],

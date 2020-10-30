@@ -39,7 +39,7 @@
 
     &:focus {
       color: #000;
-      border-color: #000;
+      border-color: map-get($theme, input-border-focus);
       outline: map-get($theme, input-focus-outline);
       box-shadow: map-get($theme, input-focus-box-shadow);
     }
