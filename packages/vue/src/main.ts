@@ -9,6 +9,7 @@ import Modal from '@/components/Modal.vue'
 import Switch from '@/components/Switch.vue'
 import ButtonGroup from '@/components/ButtonGroup.vue'
 import ButtonGroupItem from '@/components/ButtonGroupItem.vue'
+import Select from '@/components/Select.vue'
 
 export default {
   install (vue: any, options: any) {
@@ -23,5 +24,6 @@ export default {
     vue.component('av-switch', Switch)
     vue.component('av-button-group', ButtonGroup)
     vue.component('av-button-group-item', ButtonGroupItem)
+    vue.component('av-select', Select)
   }
 }

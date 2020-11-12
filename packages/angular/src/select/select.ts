@@ -160,6 +160,7 @@ export class AvSelectComponent extends AvBase implements ControlValueAccessor, A
     this.appRef.attachView(this.overlayRef.hostView);
     const domElem = (this.overlayRef.hostView as EmbeddedViewRef<any>).rootNodes[0] as HTMLElement;
     document.body.appendChild(domElem);
+
     this.overlayRef.instance.optionsTemplate = this.options;
     if (window.outerWidth < 768) {
       this.overlayRef.instance.displayTemplate = this.display;

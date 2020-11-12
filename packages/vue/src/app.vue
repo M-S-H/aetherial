@@ -38,17 +38,16 @@
     </av-modal>
 
     <av-switch v-model="isAccepted" class="primary">Accepted</av-switch>
+
+    <av-select placeholder="select one" :items="options" v-model="selected" :searchable="true" />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import AvSelect from './components/AvSelect.vue'
 export default defineComponent({
   name: 'App',
-
-  mounted () {
-    (window as any).comp = this
-  },
 
   data () {
     return {
