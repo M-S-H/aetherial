@@ -1,6 +1,6 @@
 {
   "name": "@aetherial/aetherial-vue",
-  "version": "1.0.14",
+  "version": "1.0.16",
   "scripts": {
     "serve": "vue-cli-service serve src/docs.ts",
     "build": "vue-cli-service build --target lib --name avComponents src/main.ts; cp package.json dist/package.json",

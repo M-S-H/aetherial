@@ -1,14 +1,25 @@
 <template>
   <button
     class="av-button"
-    :disabled="disabled"
+    :disabled="disabled || loading"
     v-av-ripple
     @click="propagateClick"
-    :class="color"
+    :class="[color, { 'alternate-state': loading }]"
   >
     <!-- Main Button Text -->
-    <span class="av-button-content">
+    <span
+      class="av-button-content"
+      :class="{ 'hidden-loading': loading }"
+    >
       <slot></slot>
+    </span>
+
+    <!-- Loading State -->
+    <span
+      v-if="loading"
+      class="button-loading-state"
+    >
+      <av-spinner :color="color"></av-spinner>
     </span>
   </button>
 </template>
@@ -26,6 +37,10 @@ export default defineComponent({
     state: {
       type: String,
       default: 'button'
+    },
+    loading: {
+      type: Boolean,
+      default: false
     }
   },
 

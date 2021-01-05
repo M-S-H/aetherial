@@ -1,7 +1,8 @@
 <template>
   <div class="hi">
     <h1>Stuff</h1>
-    <av-button @click="showModal = true" class="error">Hi</av-button>
+    <av-spinner color="error">Loading</av-spinner>
+    <av-button @click="loading = true" color="error" :loading="loading">Hi</av-button>
 
     <av-checkbox v-model="isAccepted" value="something">Label Godes Here</av-checkbox> {{ isAccepted }}
 
@@ -56,7 +57,8 @@ export default defineComponent({
       options: ['one', 'two', 'three'],
       selected: 'one',
       text: '',
-      showModal: false
+      showModal: false,
+      loading: false
     }
   },
 
