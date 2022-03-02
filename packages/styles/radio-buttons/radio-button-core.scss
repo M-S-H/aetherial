@@ -1,8 +1,9 @@
+@use 'sass:math';
 @mixin radio-button-mixin($theme) {
   $radio-button-size: map-get($theme, radio-button-size);
   $radio-button-border-size: map-get($theme, radio-button-border-size);
   $inner-radio-button-size: ($radio-button-size -  ($radio-button-border-size * 2));
-  $inner-button-position: ($radio-button-size - ($radio-button-border-size * 2) - $inner-radio-button-size) / 2;
+  $inner-button-position:  math.div($radio-button-size - $radio-button-border-size * 2 - $inner-radio-button-size, 2);
 
   .av-radio-button {
     height: $radio-button-size;
@@ -79,12 +80,12 @@
 }
 
 @function inner-button-scale($radio-button-size, $radio-button-border-size, $inner-radio-button-size) {
-  @return strip-unit(($inner-radio-button-size * 2) / ($radio-button-size - $radio-button-border-size));
+  @return strip-unit(math.div(($inner-radio-button-size * 2), ($radio-button-size - $radio-button-border-size)));
 }
 
 @function strip-unit($number) {
   @if type-of($number) == 'number' and not unitless($number) {
-    @return $number / ($number * 0 + 1);
+    @return math.div($number, ($number * 0 + 1));
   }
 
   @return $number;
