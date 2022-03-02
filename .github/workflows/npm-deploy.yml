@@ -35,10 +35,12 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - run: npm install -g lerna
       - run: lerna bootstrap
-      - run: cd packages/angular
-      - run: npm run build
-      - run: cd dist
-      - run: npm publish
+      - name: Build
+        run: npm run build
+        working-directory: ./packages/angular
+      - name: Publish
+        run: npm publish
+        working-directory: ./packages/angular/dist
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
   
@@ -53,9 +55,11 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - run: npm install -g lerna
       - run: lerna bootstrap
-      - run: cd packages/vue
-      - run: npm run build
-      - run: cd dist
-      - run: npm publish
+      - name: Build
+        run: npm run build
+        working-directory: ./packages/vue
+      - name: Publish
+        run: npm publish
+        working-directory: ./packages/vue/dist
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
