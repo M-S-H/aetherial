@@ -19,8 +19,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: cd packages/styles
-      - run: npm publish
+      - name: Publish
+        run: npm publish
+        working-directory: ./packages/styles
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
