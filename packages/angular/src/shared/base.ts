@@ -1,7 +1,9 @@
-import { Input, Renderer2, ElementRef, HostBinding, Injectable } from '@angular/core';
+import { Input, Renderer2, ElementRef, HostBinding, Injectable, Component } from '@angular/core';
 import { ColorPalette, ColorPaletteValues } from './color';
 
-@Injectable()
+@Component({
+  template: ''
+})
 export class AvBase {
   // Color attribute
   private _color: ColorPalette;
