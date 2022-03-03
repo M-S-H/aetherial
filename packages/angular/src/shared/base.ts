@@ -1,11 +1,10 @@
 import { Input, Renderer2, ElementRef, HostBinding, Injectable, Component } from '@angular/core';
 import { ColorPalette, ColorPaletteValues } from './color';
 
-// @Component({
-//   template: ''
-// })
-@Injectable()
-export abstract class AvBase {
+@Component({
+  template: ''
+})
+export class AvBase {
   // Color attribute
   private _color: ColorPalette;
 
